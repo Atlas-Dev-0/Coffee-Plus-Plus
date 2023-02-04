@@ -1,0 +1,122 @@
+
+body {
+    background-image: url('Design Elements/UI/Coffee_Background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: #fffddd;
+}
+
+@media only screen and (max-width: 767px) {
+  body {
+    background-size: 120% auto;
+  }
+}
+
+/* HEADER NAVBAR */
+.navbar-brand {
+    font-weight: bold;
+}
+.nav-link {
+    font-family : 'Century Gothic';
+    font-weight : bold;
+    font-size : 20px;
+    color : rgb(0, 0, 0);
+}
+
+/* Content */
+.welcome_header {
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.welcome_header .Discover_your {
+    font-family : 'Century Gothic';
+    color : #000000;
+    font-weight : bold;
+    font-size : 70px;
+    line-height : 117.5px;
+}
+
+.welcome_header .taste {
+    font-family : 'Century Gothic';
+    color : rgb(119, 55, 24);
+    font-weight : bold;
+    font-size : 70px;
+    line-height : 117.5px;
+}
+
+.search_icon {
+    filter: brightness(0) invert(1);    
+}
+
+.input-group {
+    width: 500px;
+}
+
+.Category_Htitle {
+    font-family : "Century Gothic";
+    font-weight : bolder;
+    font-size : 25px;
+    color : #000000;
+    margin-left: 15px;
+
+}
+
+.search {
+    background-color :  #6f3d0a !important; 
+    transition: 1s;
+
+}
+.search:hover {
+    background-color :  #c5721f !important;
+    transition: 1s;
+    
+}
+
+.category {
+    align-content: center;
+    text-align: center;
+    height: 40px;
+}
+.category:hover {
+    width: 30%;
+    background-color: #6f3d0a !important;
+}
+
+input[type="radio"].btn-check:checked + label.category {
+    background-color:  #6f3d0a;
+    width: 30%;
+}
+
+.btn {
+    background-color : #edd2b8;
+    font-family: "Century Gothic";
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+    border-color:  rgb(119, 55, 24);
+    border-width: 2px;
+}
+
+.Sub_Text .typewrite {
+    text-align: center;
+    font-family : 'Century Gothic';
+    color : rgb(119, 55, 24);
+    font-weight: bold ;
+    font-size: 40px;
+    margin-top: 4px;
+
+}
+
+
+
+
+  
+
+
+
+
+
+  
