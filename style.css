@@ -1,4 +1,3 @@
-
 body {
     background-image: url('Design Elements/UI/Coffee_Background.png');
     background-size: cover;
@@ -6,19 +5,6 @@ body {
     background-attachment: fixed;
     background-position: center;
     background-color: #fffddd;
-}
-
-@media only screen and (max-width: 767px) {
-  body {
-    background-size: cover;
-  }
-  .categories {
-      text-align: center;
-      position: relative;
-      size: 10px;
-      font-size: small;
-  }  
-
 }
 
 .categories {
@@ -102,6 +88,8 @@ body {
     text-align: center;
     height: 40px;
     transition: 0.2s !important;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .category:hover {
     background-color: #cc9966 !important;
@@ -135,28 +123,137 @@ input[type="radio"].btn-check:checked + label.category {
 
 }
 
-.product_card {
-    width: 18rem;
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.image {
+    position: relative;
     overflow: hidden;
-    display: inline-block;
-    align-items: center;
-    padding: 0;
-    transition: 0.3s;
+    text-align: center;
+    height: 200px;
+    border-radius: 50%;
 }
-  
-.product_image {
-    width: 100%;
-    height: auto;
+
+.iced-image {
+    padding-bottom: 20px;
+    scale: 90%;
+}
+
+.product-image {
+    margin-top: 20px;
+    margin-bottom: 2px;
+    width: 90%;
     object-fit: cover;
-    border: none;
-    transition: 0.3s;
+}
+
+.product {
+    display: flex !important;
+    cursor: pointer;
+    padding: 10px;    
+    position: relative;
+    box-shadow: 10px 3px 10px rgba(0,0,0,.2);
+    background-image: url('Design Elements/UI/CARD.png');
+    background-size: 220px 340px;
+    margin: 10px;
+    border-color: #6f3d0a;
+    border-width: 1px;
+    overflow: hidden;
+    transition: .5s;    border-radius: 15px;
+    width: 220px;
+    height: 340px;
+    border-radius: 40px !important;
+    align-items: center;
+
+}
+
+.nutrifacts {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+}
+
+.calories, .min{
+    margin-left: 2px ;
+    margin-right: 2px;
+    font-size: 12px;
+    font-weight: bold;
+    width: 70px;
+    height: auto;
+    background-color: #fffddd;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.product-name {
+    position: relative;
+    color: #fffddd;
+    font-size: 21px;
+    font-family: 'Coco Gothic';
+    font-weight: 600;
+    text-align: center;
+}
+
+.buybutton {
+    margin-top: 30px;
+    height: max-content;
+    text-align: center;
+}
+
+.product-price {
+    height: 10px;
+    font-size: medium;
+    font-weight: bolder;
+    color: #ffffff;
+    font-family: 'Century Gothic';
+}
+
+.last-item {
+    margin-right: 75%;
+}
+
+.product:hover {
+    transform: scale(1.09);
+}
+
+@media only screen and (max-width: 800px) {
+body {
+    background-size: cover;
+}
+
+.categories {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.category {
+    margin-left: 1px;
+    margin-right: 1px;
+    width: max-content;
+    height: auto;
+    font-size: 15px;
+}
+
+.product {
+    display: flex;
+    margin: 2px;
+    margin-top: 2px ;
+    margin-bottom: 6px ;
+    width: 150px;
+    height: 300px;
+}
+
+.product:hover {
+    transform: scale(1.02);
 }
 
 
-.product_card:hover,
-.product_image:hover {
-  transform: scale(1.2);
-  transition: 0.3s;
 }
 
 

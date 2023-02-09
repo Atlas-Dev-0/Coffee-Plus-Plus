@@ -2,14 +2,49 @@
 <html lang="eng">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width-device-width, initial-sclae=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>COFFEE PLUS-PLUS</title>
         
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="Bootstrap/css/bootstrap.css">
-        
         <!---CSS Stylesheet-->
         <link rel="stylesheet" href="style.css">
+
+
+
+        <script>
+          let products = [
+          {
+            name: "Americano Coffee",
+            image: "Design Elements/Coffee Models/Basic/Americano Coffee.png",
+            calories: "10 cal",
+            time: "5 mins",
+            price: "Php 120.00"
+          },
+          {
+            name: "Chocolate Coffee",
+            image: "Design Elements/Coffee Models/Basic/Chocolate Coffee.png",
+            calories: "20 cal",
+            time: "5 mins",
+            price: "Php 120.00"
+          },
+          {
+            name: "Espresso Coffee",
+            image: "Design Elements/Coffee Models/Basic/Espresso Coffee.png",
+            calories: "2 cal",
+            time: "5 mins",
+            price: "Php 120.00"
+          },
+          {
+            name: "Latte Coffee",
+            image: "Design Elements/Coffee Models/Basic/Latte Coffee.png",
+            calories: "2 cal",
+            time: "5 mins",
+            price: "Php 120.00"
+          }
+        ];
+        </script>
+
     </head>
 
     <body>
@@ -32,7 +67,7 @@
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                       <li class="nav-item">
-                        <a class="nav-link" href="#">MENU</a>
+                        <a class="nav-link" href="main.html">MENU</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="#">ABOUT</a>
@@ -69,43 +104,51 @@
             <div class="row" style="margin-top: 50px; margin-bottom:20px">
                 <div class="d-flex justify-content-center">
                     <div class="input-group">
-                      <input type="search" id="searchInput" class="form-control" placeholder="Search" aria-label="Search">
-                    </div>
-                    <button type="button" class="search btn btn-primary">
+                    <input type="text" id="searchinput" class="form-control" placeholder="Search" aria-label="Search" onkeyup="search()">
+                      
+                  </div>
+                    <button type="button" class="search btn btn-primary" id="gosearch">
                       <img src="Design Elements\icons\search.svg" class="search_icon" height="20px">
                     </button>
                   </div>
             </div>
         </div>
-        <div class="container-fluid" style="margin-top: 10px;">
-              <div class="categories mx-auto">
-                <input type="radio" class="check btn-check" name="options" id="option1" autocomplete="off">
-                <label class="category btn btn-secondary" for="option1" style="margin-left: 10px; margin-right: 10px; -radius: 12px;">ALL</label>
+        <div class="category-menu container">
+              <div class="categories">
+                <input type="radio" class="check btn-check" name="options" id="option1" autocomplete="off" checked>
+                <label class="category btn btn-secondary" for="option1">ALL</label>
                 <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
-                <label class="category btn btn-secondary" for="option2" style="margin-left: 10px; margin-right: 10px; -radius: 12px;">SPECIALTIES</label>
+                <label class="category btn btn-secondary" for="option2">BASIC</label>
                 <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off">
-                <label class="category btn btn-secondary" for="option3" style="margin-left: 10px; margin-right: 10px; -radius: 12px;">FAVORITES</label>
-                <input type="radio" class="btn-check" name="options" id="option4" autocomplete="off"> 
-                <label class="category btn btn-secondary" for="option4" style="margin-left: 10px; margin-right: 10px; -radius: 12px;">LOVED</label>
+                <label class="category btn btn-secondary" for="option3">SPECIALTIES</label>
+                <input type="radio" class="btn-check" name="options" id="option4" autocomplete="off">
+                <label class="category btn btn-secondary" for="option4">ICED</label>
               </div>
         </div>
 
-        <div class="container-fluid border" style="margin-top: 30px;">
-          <section class="cardlist container-md border">
-            <div class="product_card">
-              <img class="product_image" src="Design Elements/cards/AMERICANO.png" alt="americano">
-            </div>
-            <div class="product_card">
-              <img class="product_image" src="Design Elements/cards/CAPPUCCINO.png" alt="americano">
-            </div>
-          </section>
+        <div class="menu container" id="menu-list">
+
+          <script>
+            for (let i = 0; i < products.length; i++) {
+              document.write("<div class='product card' data-name='americano'>");
+              document.write("<div class='image'>");
+              document.write("<img class='product-image' src='" + products[i].image + "' alt='" + products[i].name + "'>");
+              document.write("</div>");
+              document.write("<div class='title'>");
+              document.write("<h2 class='product-name'>" + products[i].name + "</h2>");
+              document.write("</div>");
+              document.write("<div class='nutrifacts'>");
+              document.write("<div class='calories'>" + products[i].calories + "</div>");
+              document.write("<div class='min'>" + products[i].time + "</div>");
+              document.write("</div>");
+              document.write("<div class='buybutton'>");
+              document.write("<p class='product-price'>" + products[i].price + "</p>");
+              document.write("</div>");
+              document.write("</div>");
+            }
+          </script>
+          
         </div>
-        
-    
-
-
-
-    
-    
+      
   </body>
 </html>
