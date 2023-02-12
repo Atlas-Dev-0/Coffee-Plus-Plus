@@ -100,28 +100,89 @@
     </div>
   </div>
 
-  <div class="menu container" id="menu-list">
-    <script>
-      for (let i = 0; i < products.length; i++) {
-        document.write("<div class='product card' id='" + products[i].id + "'>");
-        document.write("<div class='image'>");
-        document.write("<img class='product-image' src='" + products[i].image + "' alt='" + products[i].name + "'>");
-        document.write("</div>");
-        document.write("<div class='title'>");
-        document.write("<h2 class='product-name'>" + products[i].name + "</h2>");
-        document.write("</div>");
-        document.write("<div class='nutrifacts'>");
-        document.write("<div class='calories'>" + products[i].calories + "</div>");
-        document.write("<div class='min'>" + products[i].time + "</div>");
-        document.write("</div>");
-        document.write("<div class='buybutton'>");
-        document.write("<p class='product-price'>" + products[i].price + "</p>");
-        document.write("</div>");
-        document.write("</div>");
-      }
-    </script>
 
-  </div>
+  <script>
+    fetch('data/products.json')
+      .then(response => response.json())
+      .then(products => {
+        const productContainer = document.createElement("div");
+        productContainer.classList.add("menu", "container");
+        productContainer.id = "menu-list";
+
+        for (let i = 0; i < products.length; i++) {
+          const product = products[i];
+
+          const productCard = document.createElement("div");
+          productCard.classList.add("product", "card");
+          productCard.id = product.id;
+
+          const image = document.createElement("div");
+          image.classList.add("image");
+
+          const productImage = document.createElement("img");
+          productImage.classList.add("product-image");
+          productImage.src = product.image;
+          productImage.alt = product.name;
+          image.appendChild(productImage);
+
+          const title = document.createElement("div");
+          title.classList.add("title");
+
+          const productName = document.createElement("h2");
+          productName.classList.add("product-name");
+          productName.textContent = product.name;
+          title.appendChild(productName);
+
+          const nutrifacts = document.createElement("div");
+          nutrifacts.classList.add("nutrifacts");
+
+          const calories = document.createElement("div");
+          calories.classList.add("calories");
+          calories.textContent = product.calories;
+          nutrifacts.appendChild(calories);
+
+          const time = document.createElement("div");
+          time.classList.add("time");
+          time.textContent = product.time;
+          nutrifacts.appendChild(time);
+
+          const buyButton = document.createElement("div");
+          buyButton.classList.add("buybutton");
+
+          const productPrice = document.createElement("p");
+          productPrice.classList.add("product-price");
+          productPrice.textContent = product.price;
+          buyButton.appendChild(productPrice);
+
+          productCard.appendChild(image);
+          productCard.appendChild(title);
+          productCard.appendChild(nutrifacts);
+          productCard.appendChild(buyButton);
+          productContainer.appendChild(productCard);
+        }
+
+        document.body.appendChild(productContainer);
+
+
+        $(document).ready(function () {
+          var items = $('.menu').children();
+          $(items[items.length - 1]).addClass('last-item');
+        });
+
+        // CHANGE PRICE TO BUY
+        const productPrices = document.querySelectorAll(".product-price");
+        for (let i = 0; i < productPrices.length; i++) {
+          productPrices[i].addEventListener("mouseover", function () {
+            this.textContent = "Buy";
+          });
+          productPrices[i].addEventListener("mouseout", function () {
+            this.textContent = products[i].price;
+          });
+        }
+      })
+      .catch(error => console.error('Error:', error));
+  </script>
+
 </body>
 
 </html>
