@@ -1,203 +1,127 @@
 <!DOCTYPE html>
-<html lang="eng">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>COFFEE PLUS-PLUS</title>
-        
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="Bootstrap/css/bootstrap.css">
-        <!---CSS Stylesheet-->
-        <link rel="stylesheet" href="style.css">
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COFFEE PLUS-PLUS</title>
 
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="Bootstrap/css/bootstrap.css">
+  <!---CSS Stylesheet-->
+  <link rel="stylesheet" href="style.css">
 
-        <script>
-          let products = [
-          {
-            name: "Americano Coffee",
-            image: "Design Elements/Coffee Models/Basic/Americano Coffee.png",
-            calories: "10 cal",
-            time: "5 mins",
-            price: "Php 120.00"
-          },
-          {
-            name: "Chocolate Coffee",
-            image: "Design Elements/Coffee Models/Basic/Chocolate Coffee.png",
-            calories: "20 cal",
-            time: "5 mins",
-            price: "Php 120.00"
-          },
-          {
-            name: "Espresso Coffee",
-            image: "Design Elements/Coffee Models/Basic/Espresso Coffee.png",
-            calories: "2 cal",
-            time: "5 mins",
-            price: "Php 120.00"
-          },
-          {
-            name: "Latte Coffee",
-            image: "Design Elements/Coffee Models/Basic/Latte Coffee.png",
-            calories: "2 cal",
-            time: "5 mins",
-            price: "Php 120.00"
-          },
-          {
-            name: "Cappuccino Coffee",
-            image: "Design Elements/Coffee Models/Specialties/Cappuccino Coffee.png",
-            calories: "2 cal",
-            time: "5 mins",
-            price: "Php 120.00"
-          },
-          {
-            name: "Macchiato Coffee",
-            image: "Design Elements/Coffee Models/Specialties/Macchiato Coffee.png",
-            calories: "2 cal",
-            time: "5 mins",
-            price: "Php 120.00"
-          },
-          {
-            name: "Ristretto Coffee",
-            image: "Design Elements/Coffee Models/Specialties/Ristretto Coffee.png",
-            calories: "2 cal",
-            time: "5 mins",
-            price: "Php 120.00"
-          },
-          {
-            name: "Iced Frappe",
-            image: "Design Elements/Coffee Models/Iced/Iced Frappe.png",
-            calories: "2 cal",
-            time: "5 mins",
-            price: "Php 120.00"
-          },
-          {
-            name: "Iced Latte",
-            image: "Design Elements/Coffee Models/Iced/Iced Latte.png",
-            calories: "2 cal",
-            time: "5 mins",
-            price: "Php 120.00"
-          },
-          {
-            name: "Iced Mocha",
-            image: "Design Elements/Coffee Models/Iced/Iced Mocha.png",
-            calories: "2 cal",
-            time: "5 mins",
-            price: "Php 120.00"
-          },
-          {
-            name: "Iced Tea",
-            image: "Design Elements/Coffee Models/Iced/Iced Tea.png",
-            calories: "2 cal",
-            time: "5 mins",
-            price: "Php 120.00"
-          }
-        ];
-        </script>
+</head>
 
-    </head>
+<body>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="Bootstrap/js/bootstrap.js"></script>
+  <script src="script.js"></script>
 
-    <body>
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="Bootstrap/js/bootstrap.js"></script>
-        <script src="script.js"></script>
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="Logo\SVG_LOGO_HORIZONTAL.svg" alt="Brand Logo" style="height: 60px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="main.html">MENU</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">ABOUT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">CONTACT</a>
+            </li>
+            <li class="nav-item">
+              <a class="cart" href="#" style="margin-left: 15px; margin-right: 15px;">
+                <img src="Design Elements\icons\cart-fill.svg" alt="Cart-Icon" height="35px">
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-        <header>
-            <nav class="navbar navbar-expand-lg">
-                <div class="container-fluid">
-                  <a class="navbar-brand" href="#">
-                    <img src="Logo\SVG_LOGO_HORIZONTAL.svg" alt="Brand Logo"  style="height: 60px;">
-                  </a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                      <li class="nav-item">
-                        <a class="nav-link" href="main.html">MENU</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">ABOUT</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">CONTACT</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="cart" href="#" style="margin-left: 15px; margin-right: 15px;">
-                          <img src="Design Elements\icons\cart-fill.svg" alt="Cart-Icon" height="35px">
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </nav>
-        </header>
-
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <div class="welcome_header">
-                    <h1 class="Discover_your">Discover your <span class="taste">taste</span> </h1> 
-                </div>
-                <div class="Sub_Text">
-                    <h2 class="typewrite" data-period="2000" data-type='[ 
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <div class="welcome_header">
+        <h1 class="Discover_your">Discover your <span class="taste">taste</span> </h1>
+      </div>
+      <div class="Sub_Text">
+        <h2 class="typewrite" data-period="2000" data-type='[ 
                                                             "Just pick! Trust your judgement!", 
                                                             "Coffee for life!", "#CoffeeLife", 
                                                             "Code and Relax!" ]'>
-                    <span class="wrap"></span>
-                    </h2>
-                </div>
-            </div>   
-            
-            <div class="row" style="margin-top: 50px; margin-bottom:20px">
-                <div class="d-flex justify-content-center">
-                    <div class="input-group">
-                    <input type="text" id="searchinput" class="form-control" placeholder="Search" aria-label="Search" onkeyup="search()">
-                      
-                  </div>
-                    <button type="button" class="search btn btn-primary" id="gosearch">
-                      <img src="Design Elements\icons\search.svg" class="search_icon" height="20px">
-                    </button>
-                  </div>
-            </div>
-        </div>
-        <div class="category-menu container">
-              <div class="categories">
-                <input type="radio" class="check btn-check" name="options" id="option1" autocomplete="off" checked>
-                <label class="category btn btn-secondary" for="option1">ALL</label>
-                <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
-                <label class="category btn btn-secondary" for="option2">BASIC</label>
-                <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off">
-                <label class="category btn btn-secondary" for="option3">SPECIALTIES</label>
-                <input type="radio" class="btn-check" name="options" id="option4" autocomplete="off">
-                <label class="category btn btn-secondary" for="option4">ICED</label>
-              </div>
-        </div>
+          <span class="wrap"></span>
+        </h2>
+      </div>
+    </div>
 
-        <div class="menu container" id="menu-list">
-
-          <script>
-            for (let i = 0; i < products.length; i++) {
-              document.write("<div class='product card' data-name='americano'>");
-              document.write("<div class='image'>");
-              document.write("<img class='product-image' src='" + products[i].image + "' alt='" + products[i].name + "'>");
-              document.write("</div>");
-              document.write("<div class='title'>");
-              document.write("<h2 class='product-name'>" + products[i].name + "</h2>");
-              document.write("</div>");
-              document.write("<div class='nutrifacts'>");
-              document.write("<div class='calories'>" + products[i].calories + "</div>");
-              document.write("<div class='min'>" + products[i].time + "</div>");
-              document.write("</div>");
-              document.write("<div class='buybutton'>");
-              document.write("<p class='product-price'>" + products[i].price + "</p>");
-              document.write("</div>");
-              document.write("</div>");
-            }
-          </script>
-          
+    <div class="row" style="margin-top: 50px; margin-bottom:20px">
+      <div class="d-flex justify-content-center">
+        <div class="input-group">
+          <input type="text" id="searchinput" class="form-control" placeholder="Search" aria-label="search"
+            onkeyup="search()">
         </div>
-      
-  </body>
+        <button type="button" class="search btn btn-primary" id="gosearch">
+          <img src="Design Elements\icons\search.svg" class="search_icon" height="20px">
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="category-menu container">
+    <div class="categories">
+      <input type="radio" class="check btn-check" name="categories" id="category-all" autocomplete="off" checked>
+      <label class="category btn btn-secondary" for="category-all">ALL</label>
+      <input type="radio" class="btn-check" name="categories" id="category-basic" autocomplete="off">
+      <label class="category btn btn-secondary" for="category-basic">BASIC</label>
+
+      <input type="radio" class="btn-check" name="categories" id="category-special" autocomplete="off">
+      <label class="category btn btn-secondary" for="category-special">SPECIALTIES</label>
+
+      <input type="radio" class="btn-check" name="categories" id="category-iced" autocomplete="off">
+      <label class="category btn btn-secondary" for="category-iced">ICED</label>
+    </div>
+  </div>
+
+  <div class="menu container" id="menu-list">
+    <script>
+      for (let i = 0; i < products.length; i++) {
+        document.write("<div class='product card' id='" + products[i].id + "'>");
+        document.write("<div class='image'>");
+        document.write("<img class='product-image' src='" + products[i].image + "' alt='" + products[i].name + "'>");
+        document.write("</div>");
+        document.write("<div class='title'>");
+        document.write("<h2 class='product-name'>" + products[i].name + "</h2>");
+        document.write("</div>");
+        document.write("<div class='nutrifacts'>");
+        document.write("<div class='calories'>" + products[i].calories + "</div>");
+        document.write("<div class='min'>" + products[i].time + "</div>");
+        document.write("</div>");
+        document.write("<div class='buybutton'>");
+        document.write("<p class='product-price'>" + products[i].price + "</p>");
+        document.write("</div>");
+        document.write("</div>");
+      }
+    </script>
+
+  </div>
+</body>
+
 </html>

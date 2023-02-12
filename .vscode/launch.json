@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Acer/Desktop/Coffee plus-plus Project/Code",
-      "program": "c:/Users/Acer/Desktop/Coffee plus-plus Project/Code/build/Debug/outDebug",
+      "cwd": "c:/Users/Acer/Desktop/GithubRepos/Coffee-Plus-Plus",
+      "program": "c:/Users/Acer/Desktop/GithubRepos/Coffee-Plus-Plus/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

@@ -10,7 +10,7 @@ body {
 .categories {
     text-align: center;
     position: relative;
-}  
+}
 
 /* HEADER NAVBAR */
 .navbar-brand {
@@ -22,10 +22,10 @@ body {
 }
 
 .nav-link {
-    font-family : 'Century Gothic';
-    font-weight : bold;
-    font-size : 20px;
-    color : rgb(0, 0, 0);
+    font-family: 'Century Gothic';
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
 }
 
 /* Content */
@@ -35,23 +35,23 @@ body {
 }
 
 .welcome_header .Discover_your {
-    font-family : 'Century Gothic';
-    color : #000000;
-    font-weight : bold;
-    font-size : 70px;
-    line-height : 117.5px;
+    font-family: 'Century Gothic';
+    color: #000000;
+    font-weight: bold;
+    font-size: 70px;
+    line-height: 117.5px;
 }
 
 .welcome_header .taste {
-    font-family : 'Century Gothic';
-    color : rgb(119, 55, 24);
-    font-weight : bold;
-    font-size : 70px;
-    line-height : 117.5px;
+    font-family: 'Century Gothic';
+    color: rgb(119, 55, 24);
+    font-weight: bold;
+    font-size: 70px;
+    line-height: 117.5px;
 }
 
 .search_icon {
-    filter: brightness(0) invert(1);    
+    filter: brightness(0) invert(1);
 }
 
 .input-group {
@@ -59,23 +59,24 @@ body {
 }
 
 .Category_Htitle {
-    font-family : "Century Gothic";
-    font-weight : bolder;
-    font-size : 25px;
-    color : #000000;
+    font-family: "Century Gothic";
+    font-weight: bolder;
+    font-size: 25px;
+    color: #000000;
     margin-left: 15px;
 
 }
 
 .search {
-    background-color :  #6f3d0a !important; 
+    background-color: #6f3d0a !important;
     transition: 1s;
 
 }
+
 .search:hover {
-    background-color :  #c5721f !important;
+    background-color: #c5721f !important;
     transition: 1s;
-    
+
 }
 
 .col {
@@ -91,33 +92,34 @@ body {
     margin-left: 10px;
     margin-right: 10px;
 }
+
 .category:hover {
     background-color: #cc9966 !important;
     transition: 0.2s !important;
     border-color: #6f3d0a !important;
 }
 
-input[type="radio"].btn-check:checked + label.category {
+input[type="radio"].btn-check:checked+label.category {
     background-color: #cc9966;
     transition: 0.2s !important;
     border-color: #6f3d0a !important;
 }
 
 .btn {
-    background-color : #ffffff;
+    background-color: #ffffff;
     font-family: "Century Gothic";
     font-weight: bold;
     text-align: center;
     color: #000000;
-    border-color:  rgb(119, 55, 24);
+    border-color: rgb(119, 55, 24);
     border-width: 2px;
 }
 
 .Sub_Text .typewrite {
     text-align: center;
-    font-family : 'Century Gothic';
-    color : rgb(119, 55, 24);
-    font-weight: bold ;
+    font-family: 'Century Gothic';
+    color: rgb(119, 55, 24);
+    font-weight: bold;
     font-size: 40px;
     margin-top: 4px;
 
@@ -139,11 +141,6 @@ input[type="radio"].btn-check:checked + label.category {
     border-radius: 50%;
 }
 
-.iced-image {
-    padding-bottom: 20px;
-    scale: 90%;
-}
-
 .product-image {
     margin-top: 20px;
     margin-bottom: 2px;
@@ -154,16 +151,17 @@ input[type="radio"].btn-check:checked + label.category {
 .product {
     display: flex !important;
     cursor: pointer;
-    padding: 10px;    
+    padding: 10px;
     position: relative;
-    box-shadow: 10px 3px 10px rgba(0,0,0,.2);
+    box-shadow: 10px 3px 10px rgba(0, 0, 0, .2);
     background-image: url('Design Elements/UI/CARD.png');
     background-size: 220px 340px;
     margin: 10px;
     border-color: #6f3d0a;
     border-width: 1px;
     overflow: hidden;
-    transition: .5s;    border-radius: 15px;
+    transition: .5s;
+    border-radius: 15px;
     width: 220px;
     height: 340px;
     border-radius: 40px !important;
@@ -178,8 +176,9 @@ input[type="radio"].btn-check:checked + label.category {
     justify-content: center;
 }
 
-.calories, .min{
-    margin-left: 2px ;
+.calories,
+.min {
+    margin-left: 2px;
     margin-right: 2px;
     font-size: 12px;
     font-weight: bold;
@@ -192,6 +191,7 @@ input[type="radio"].btn-check:checked + label.category {
 
 .product-name {
     position: relative;
+    margin-top: 5px;
     color: #fffddd;
     font-size: 21px;
     font-family: 'Coco Gothic';
@@ -206,11 +206,21 @@ input[type="radio"].btn-check:checked + label.category {
 }
 
 .product-price {
-    height: 10px;
+    height: max-content;
+    width: 115px;
     font-size: medium;
     font-weight: bolder;
+    background-color: #c5721f;
+    border-radius: 20px;
     color: #ffffff;
     font-family: 'Century Gothic';
+    transition: 0.3s;
+}
+
+.product-price:hover {
+    color: #6f3d0a;
+    background-color: #fffddd;
+    transition: 0.3s;
 }
 
 .last-item {
@@ -222,50 +232,36 @@ input[type="radio"].btn-check:checked + label.category {
 }
 
 @media only screen and (max-width: 800px) {
-body {
-    background-size: cover;
+    body {
+        background-size: cover;
+    }
+
+    .categories {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .category {
+        margin-left: 1px;
+        margin-right: 1px;
+        width: max-content;
+        height: auto;
+        font-size: 15px;
+    }
+
+    .product {
+        display: flex;
+        margin: 2px;
+        margin-top: 2px;
+        margin-bottom: 6px;
+        width: 150px;
+        height: 300px;
+    }
+
+    .product:hover {
+        transform: scale(1.02);
+    }
+
+
 }
-
-.categories {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-}
-
-.category {
-    margin-left: 1px;
-    margin-right: 1px;
-    width: max-content;
-    height: auto;
-    font-size: 15px;
-}
-
-.product {
-    display: flex;
-    margin: 2px;
-    margin-top: 2px ;
-    margin-bottom: 6px ;
-    width: 150px;
-    height: 300px;
-}
-
-.product:hover {
-    transform: scale(1.02);
-}
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
