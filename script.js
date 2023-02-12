@@ -173,7 +173,6 @@ let products = [
   },
   {
     id: "0304",
-    tags: 
     name: "Iced Tea",
     image: "Design Elements/Coffee Models/Iced/Iced Tea.png",
     calories: "2 cal",
