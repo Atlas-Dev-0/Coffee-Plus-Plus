@@ -203,6 +203,7 @@ input[type="radio"].btn-check:checked+label.category {
     margin-top: 30px;
     height: max-content;
     text-align: center;
+    text-decoration: none;
 }
 
 .product-price {
@@ -221,10 +222,6 @@ input[type="radio"].btn-check:checked+label.category {
     color: #6f3d0a;
     background-color: #fffddd;
     transition: 0.3s;
-}
-
-.last-item {
-    margin-right: 75%;
 }
 
 .product:hover {

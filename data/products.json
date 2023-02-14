@@ -11,15 +11,15 @@
         "id": "0102",
         "name": "Chocolate Coffee",
         "image": "Design Elements/Coffee Models/Basic/Chocolate Coffee.png",
-        "calories": "20 cal",
-        "time": "5 mins",
+        "calories": "190 cal",
+        "time": "8 mins",
         "price": "Php 120.00"
     },
     {
         "id": "0103",
         "name": "Espresso Coffee",
         "image": "Design Elements/Coffee Models/Basic/Espresso Coffee.png",
-        "calories": "2 cal",
+        "calories": "20 cal",
         "time": "5 mins",
         "price": "Php 120.00"
     },
@@ -27,23 +27,23 @@
         "id": "0104",
         "name": "Latte Coffee",
         "image": "Design Elements/Coffee Models/Basic/Latte Coffee.png",
-        "calories": "2 cal",
-        "time": "5 mins",
+        "calories": "150 cal",
+        "time": "10 mins",
         "price": "Php 120.00"
     },
     {
         "id": "0201",
         "name": "Cappuccino Coffee",
         "image": "Design Elements/Coffee Models/Specialties/Cappuccino Coffee.png",
-        "calories": "2 cal",
-        "time": "5 mins",
+        "calories": "45 cal",
+        "time": "8 mins",
         "price": "Php 120.00"
     },
     {
         "id": "0202",
         "name": "Macchiato Coffee",
         "image": "Design Elements/Coffee Models/Specialties/Macchiato Coffee.png",
-        "calories": "2 cal",
+        "calories": "10 cal",
         "time": "5 mins",
         "price": "Php 120.00"
     },
@@ -52,14 +52,14 @@
         "name": "Ristretto Coffee",
         "image": "Design Elements/Coffee Models/Specialties/Ristretto Coffee.png",
         "calories": "2 cal",
-        "time": "5 mins",
+        "time": "8 mins",
         "price": "Php 120.00"
     },
     {
         "id": "0301",
         "name": "Iced Frappe",
         "image": "Design Elements/Coffee Models/Iced/Iced Frappe.png",
-        "calories": "2 cal",
+        "calories": "280 cal",
         "time": "5 mins",
         "price": "Php 120.00"
     },
@@ -67,8 +67,8 @@
         "id": "0302",
         "name": "Iced Latte",
         "image": "Design Elements/Coffee Models/Iced/Iced Latte.png",
-        "calories": "2 cal",
-        "time": "5 mins",
+        "calories": "120 cal",
+        "time": "8 mins",
         "price": "Php 120.00"
     },
     {
