@@ -125,7 +125,6 @@ input[type="radio"].btn-check:checked+label.category {
 
 }
 
-
 .menu {
     display: flex;
     flex-wrap: wrap;
@@ -145,7 +144,6 @@ input[type="radio"].btn-check:checked+label.category {
     margin-top: 20px;
     margin-bottom: 2px;
     width: 90%;
-    object-fit: cover;
 }
 
 .product{
@@ -227,6 +225,14 @@ input[type="radio"].btn-check:checked+label.category {
 .product:hover {
     transform: scale(1.09);
 }
+
+
+/* ABOUT PAGE */
+
+.kenneth p {
+    font-weight:450;
+}
+
 
 @media only screen and (max-width: 800px) {
     body {
