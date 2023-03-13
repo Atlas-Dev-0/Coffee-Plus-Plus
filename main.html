@@ -74,8 +74,7 @@
     <div class="row" style="margin-top: 50px; margin-bottom:20px">
       <div class="d-flex justify-content-center">
         <div class="input-group">
-          <input type="text" id="searchinput" class="form-control" placeholder="Search" aria-label="search"
-            onkeyup="search()">
+          <input id="searchinput" class="form-control" type="text" placeholder="Search">
         </div>
         <button type="button" class="search btn btn-primary" id="gosearch">
           <img src="Design Elements\icons\search.svg" class="search_icon" height="20px">
@@ -111,6 +110,8 @@
             const productCard = document.createElement("div");
             productCard.classList.add("product", "card");
             productCard.id = product.id;
+            productCard.setAttribute("data-name", product.dataname);
+
 
             const image = document.createElement("div");
             image.classList.add("image");
@@ -156,10 +157,9 @@
             productCard.appendChild(nutrifacts);
             productCard.appendChild(buyButton);
             productContainer.appendChild(productCard);
+            document.body.appendChild(productContainer);
           }
-          document.body.appendChild(productContainer);
-
-
+          
           // CHANGE PRICE TO BUY
           const productPrices = document.querySelectorAll(".product-price");
           for (let i = 0; i < productPrices.length; i++) {

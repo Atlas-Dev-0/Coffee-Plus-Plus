@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<!--=== Coding by CodingLab | www.codinglabweb.com === -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta data-name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="style.css">
+
+    <!--===== Boxicons CSS =====-->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+    <!--<title>Image Gallery with Search Box</title>-->
+    <style>
+        /* ===== Google Font Import - Poppins ===== */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            position: relative;
+            min-height: 100vh;
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .container .search-box {
+            position: relative;
+            height: 42px;
+            max-width: 400px;
+            margin: 0 auto;
+            margin-bottom: 40px;
+        }
+
+        .search-box input {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            outline: none;
+            border: none;
+            background-color: #323334;
+            padding: 0 15px 0 45px;
+            color: #fff;
+            border-radius: 6px;
+        }
+
+        .search-box i {
+            position: absolute;
+            z-index: 2;
+            color: #999;
+            top: 50%;
+            left: 15px;
+            font-size: 20px;
+            transform: translateY(-50%);
+        }
+
+        .container .images .image-box {
+            position: relative;
+            height: 300px;
+            width: 210px;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .images {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .images .image-box {
+            margin: 8px;
+        }
+
+        .images .image-box img {
+            height: 100%;
+            width: 100%;
+            border-radius: 6px;
+            transition: transform 0.2s linear;
+        }
+
+        .image-box:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-box h6 {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 400;
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function print_gallery() {
+            fetch('data/products.json')
+                .then(response => response.json())
+                .then(products => {
+                    const gallerycontainer = document.createElement("div");
+                    gallerycontainer.classList.add("images");
+                for (let i = 0; i < products.length; i++) {
+                    const image = products[i];
+
+                    const imagebox = document.createElement("div");
+                    imagebox.classList.add("image-box");
+                    imagebox.classList.setAttribute("data-name", image.dataname);
+                    
+
+                }
+                
+                });
+        }
+
+    </script>
+    <div class="container">
+
+        <div class="search-box">
+            <i class="bx bx-search"></i>
+            <input type="text" placeholder="Search a movie">
+        </div>
+
+        <div class="images">
+            <div class="image-box" data-name="spiderman">
+                <img src="" alt="spiderman">
+                <h6>spiderman</h6>
+            </div>
+            <div class="image-box" data-name="joker">
+                <img src="" alt="joker">
+                <h6>joker</h6>
+            </div>
+            <div class="image-box" data-name="ironman">
+                <img src="" alt="ironman">
+                <h6>ironman</h6>
+            </div>
+            <div class="image-box" data-name="passenger">
+                <img src="" alt="passenger">
+                <h6>passenger</h6>
+            </div>
+            <div class="image-box" data-name="space">
+                <img src="" alt="space">
+                <h6>the space</h6>
+            </div>
+            <div class="image-box" data-name="spiderman">
+                <img src="" alt="spiderman">
+                <h6>spiderman 2</h6>
+            </div>
+            <div class="image-box" data-name="universe">
+                <img src="" alt="universe">
+                <h6>the universe</h6>
+            </div>
+            <div class="image-box" data-name="spiderman">
+                <img src="" alt="spiderman">
+                <h6>spiderman 3</h6>
+            </div>
+            <div class="image-box" data-name="holiday">
+                <img src="" alt="holiday">
+                <h6>holiday</h6>
+            </div>
+            <div class="image-box" data-name="ironman">
+                <img src="" alt="ironman">
+                <h6>ironman 2</h6>
+            </div>
+        </div>
+    </div>
+
+    <!--<script src="script.js"></>-->
+    <script>
+        const search = document.querySelector(".search-box input"),
+            images = document.querySelectorAll(".image-box");
+
+        search.addEventListener("keyup", e => {
+            if (e.key == "Enter") {
+                let searcValue = search.value,
+                    value = searcValue.toLowerCase();
+                images.forEach(image => {
+                    if (value === image.dataset.name) { //matching value with getting attribute of images
+                        return image.style.display = "block";
+                    }
+                    image.style.display = "none";
+                });
+            }
+        });
+
+        search.addEventListener("keyup", () => {
+            if (search.value != "") return;
+
+            images.forEach(image => {
+                image.style.display = "block";
+            })
+        })
+
+    </script>
+</body>
+
+</html>

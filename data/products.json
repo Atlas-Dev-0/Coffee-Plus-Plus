@@ -1,6 +1,7 @@
 [
     {
         "id": "0101",
+        "dataname": "americano",
         "name": "Americano Coffee",
         "image": "Design Elements/Coffee Models/Basic/Americano Coffee.png",
         "calories": "10 cal",
@@ -9,6 +10,7 @@
     },
     {
         "id": "0102",
+        "dataname": "chocolate",
         "name": "Chocolate Coffee",
         "image": "Design Elements/Coffee Models/Basic/Chocolate Coffee.png",
         "calories": "190 cal",
@@ -17,6 +19,7 @@
     },
     {
         "id": "0103",
+        "dataname": "espresso",
         "name": "Espresso Coffee",
         "image": "Design Elements/Coffee Models/Basic/Espresso Coffee.png",
         "calories": "20 cal",
@@ -25,6 +28,7 @@
     },
     {
         "id": "0104",
+        "dataname": "latte",
         "name": "Latte Coffee",
         "image": "Design Elements/Coffee Models/Basic/Latte Coffee.png",
         "calories": "150 cal",
@@ -33,6 +37,7 @@
     },
     {
         "id": "0201",
+        "dataname": "cappuccino",
         "name": "Cappuccino Coffee",
         "image": "Design Elements/Coffee Models/Specialties/Cappuccino Coffee.png",
         "calories": "45 cal",
@@ -41,6 +46,7 @@
     },
     {
         "id": "0202",
+        "dataname": "macchiato",
         "name": "Macchiato Coffee",
         "image": "Design Elements/Coffee Models/Specialties/Macchiato Coffee.png",
         "calories": "10 cal",
@@ -49,6 +55,7 @@
     },
     {
         "id": "0203",
+        "dataname": "ristretto",
         "name": "Ristretto Coffee",
         "image": "Design Elements/Coffee Models/Specialties/Ristretto Coffee.png",
         "calories": "2 cal",
@@ -57,6 +64,7 @@
     },
     {
         "id": "0301",
+        "dataname": "frappe",
         "name": "Iced Frappe",
         "image": "Design Elements/Coffee Models/Iced/Iced Frappe.png",
         "calories": "280 cal",
@@ -65,6 +73,7 @@
     },
     {
         "id": "0302",
+        "dataname": "latte",
         "name": "Iced Latte",
         "image": "Design Elements/Coffee Models/Iced/Iced Latte.png",
         "calories": "120 cal",
@@ -73,17 +82,19 @@
     },
     {
         "id": "0303",
+        "dataname": "mocha",
         "name": "Iced Mocha",
         "image": "Design Elements/Coffee Models/Iced/Iced Mocha.png",
-        "calories": "2 cal",
+        "calories": "130 cal",
         "time": "5 mins",
         "price": "Php 170.00"
     },
     {
         "id": "0304",
+        "dataname": "Iced",
         "name": "Iced Tea",
         "image": "Design Elements/Coffee Models/Iced/Iced Tea.png",
-        "calories": "2 cal",
+        "calories": "50 cal",
         "time": "5 mins",
         "price": "Php 100.00"
     }

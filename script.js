@@ -48,24 +48,19 @@ window.onload = function () {
       new TxtType(elements[i], JSON.parse(toRotate), period);
     }
   }
-  // INJECT CSS
+
   var css = document.createElement("style");
-  css.type = "text/css";
   css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
   document.body.appendChild(css);
 };
 
-function searchFunction() {
-  let input = document.getElementById('searchinput').value;
-  let items = document.getElementsByClassName('.product');
+function search() {
 
-  for (let i = 0; i < items.length; i++) {
-    if (!items[i].innerHTML.toLowerCase().includes(input.toLowerCase())) {
-      items[i].style.display = "none";
-    } else {
-      items[i].style.display = "block";
-    }
-  }
+
 }
+
+
+
+
 
 
