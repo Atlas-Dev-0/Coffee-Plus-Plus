@@ -146,7 +146,7 @@ input[type="radio"].btn-check:checked+label.category {
     width: 90%;
 }
 
-.product{
+.product {
     display: flex !important;
     cursor: pointer;
     padding: 10px;
@@ -174,7 +174,8 @@ input[type="radio"].btn-check:checked+label.category {
     justify-content: center;
 }
 
-.calories, .time {
+.calories,
+.time {
     margin-left: 2px;
     margin-right: 2px;
     font-size: 12px;
@@ -228,13 +229,31 @@ input[type="radio"].btn-check:checked+label.category {
 
 /* ABOUT PAGE */
 
-.kenneth p {
-    font-weight:450;
+.face {
+    display: flex;
+    position: relative;
+    top: 70px;
 }
 
+.aboutus-card {
+    padding-top: 30px;
+    background-color: #8d5824;
+    border-radius: 30px;
+    height: 500px;
+    width: 300px;
+    text-align: center;
+}
 
+.kenneth, .maricon, .maryjoyce, .roseann {
+    margin-left: 20px;
+    margin-right: 20px;
+}
 
-
+.kenneth img, .maricon img, .roseann img, .maryjoyce img  {
+    position: relative;
+    border-radius: 50%;
+    height: 220px;
+}
 
 @media only screen and (max-width: 800px) {
     body {

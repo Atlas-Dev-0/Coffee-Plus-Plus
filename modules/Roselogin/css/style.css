@@ -1,0 +1,10 @@
+.w-450{
+    width: 450px;
+}
+.vh-100{
+    min-height: 100vh;
+}
+
+.custom-tooltip {
+    --bs-tooltip-bg: var(--bs-primary);
+  }
