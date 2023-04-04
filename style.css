@@ -1,3 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Hardware acceleration */
+  .product {
+    transform: translateZ(0);
+  }
+  
+  /* CSS transitions */
+  .product {
+    transition: transform 0.3s ease-in-out;
+  }
+
 body {
     background-image: url('Design Elements/UI/Coffee_Background.png');
     background-size: cover;
@@ -97,6 +118,7 @@ body {
     background-color: #cc9966 !important;
     transition: 0.2s !important;
     border-color: #6f3d0a !important;
+  
 }
 
 input[type="radio"].btn-check:checked+label.category {
