@@ -50,7 +50,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             </li>
             <li class="nav-item">
               <a class="cart" href="#" style="margin-left: 15px; margin-right: 15px; padding-bottom: 1px; padding-top: 2px; margin-right: 10px;">
-                <img src="Design Elements\icons\cart_empty.svg" alt="Cart-Icon" height="30px">
+                <img src="Design Elements\icons\bag.svg" alt="Cart-Icon" height="30px">
               </a>
             </li>
             <li class="nav-item">
@@ -109,7 +109,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             <p>Full Name</p>
           </div>
           <div class="cart ">
-            <img src="Design Elements\icons\cart_empty.svg" alt="Cart-Icon" height="50px">
+            <img src="Design Elements\icons\bag.svg" alt="Cart-Icon" height="50px">
           </div>
         </div>
         <div class="username_birthday_section">
