@@ -46,7 +46,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
               <a class="nav-link" href="index.php" style="color:white; background-color:rgb(128, 98, 61); border-radius: 20px; padding-bottom: 1px; padding-top: 2px;">HOME</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" style="padding-bottom: 1px; padding-top: 2px;" href="aboutpage.php">ABOUT</a>
+              <a class="nav-link" style="padding-bottom: 1px; padding-top: 2px;" href="aboutpage.html">ABOUT</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" style="padding-bottom: 1px; padding-top: 2px;" href="#">CONTACT</a>
