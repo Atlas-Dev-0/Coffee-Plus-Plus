@@ -2,7 +2,7 @@
 // Connect to the database
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "password";
 $dbname = "coffeeplusplusdb";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -147,7 +147,7 @@ if (isset($_POST['submit'])) {
       <input type="text" id="address" name="address" required><br>
       <label for="contact_number" style="font-weight: bold;">Contact Number:</label>
       <input type="text" id="contact_number" name="contact_number" required><br><br>
-      <button type="submit"  name="submit" class="btn">Submit</button>
+      <button type="submit" name="submit" class="btn">Submit</button>
     </form>
   </div>
 </body>

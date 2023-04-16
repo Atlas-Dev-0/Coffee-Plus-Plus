@@ -34,7 +34,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         <a class="navbar-brand" href="#">
           <img src="Logo\SVG_LOGO_HORIZONTAL.svg" alt="Brand Logo" style="height: 60px;">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -49,12 +50,14 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
               <a class="nav-link" style="padding-bottom: 1px; padding-top: 2px;" href="#">CONTACT</a>
             </li>
             <li class="nav-item">
-              <a class="cart" href="#" style="margin-left: 15px; margin-right: 15px; padding-bottom: 1px; padding-top: 2px; margin-right: 10px;">
+              <a class="cart" href="#"
+                style="margin-left: 15px; margin-right: 15px; padding-bottom: 1px; padding-top: 2px; margin-right: 10px;">
                 <img src="Design Elements\icons\bag.svg" alt="Cart-Icon" height="30px">
               </a>
             </li>
             <li class="nav-item">
-              <a class="account" href="userdashboard.php" style="margin-left: 15px; margin-right: 15px; padding-bottom: 1px; padding-top: 2px;">
+              <a class="account" href="userdashboard.php"
+                style="margin-left: 15px; margin-right: 15px; padding-bottom: 1px; padding-top: 2px;">
                 <img src="Design Elements\icons\person-circle-selected.svg" alt="account-Icon" height="30px">
               </a>
             </li>

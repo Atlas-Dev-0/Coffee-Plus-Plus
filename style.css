@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -43,7 +44,7 @@ body {
 }
 
 .nav-link {
-    font-family: 'Century Gothic';
+    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     font-size: 20px;
     color: rgb(0, 0, 0);
@@ -56,7 +57,7 @@ body {
 }
 
 .welcome_header .Discover_your {
-    font-family: 'Century Gothic';
+    font-family: 'Montserrat', sans-serif;
     color: #000000;
     font-weight: bold;
     font-size: 70px;
@@ -64,7 +65,7 @@ body {
 }
 
 .welcome_header .taste {
-    font-family: 'Century Gothic';
+    font-family: 'Montserrat', sans-serif;
     color: rgb(119, 55, 24);
     font-weight: bold;
     font-size: 70px;
@@ -80,7 +81,7 @@ body {
 }
 
 .Category_Htitle {
-    font-family: "Century Gothic";
+    font-family: 'Montserrat', sans-serif;
     font-weight: bolder;
     font-size: 25px;
     color: #000000;
@@ -129,7 +130,7 @@ input[type="radio"].btn-check:checked+label.category {
 
 .btn {
     background-color: #ffffff;
-    font-family: "Century Gothic";
+    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     text-align: center;
     color: #000000;
@@ -139,7 +140,7 @@ input[type="radio"].btn-check:checked+label.category {
 
 .Sub_Text .typewrite {
     text-align: center;
-    font-family: 'Century Gothic';
+    font-family: 'Montserrat', sans-serif;
     color: rgb(119, 55, 24);
     font-weight: bold;
     font-size: 40px;
@@ -214,7 +215,7 @@ input[type="radio"].btn-check:checked+label.category {
     margin-top: 5px;
     color: #fffddd;
     font-size: 21px;
-    font-family: 'Coco Gothic';
+    font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     text-align: center;
 }
@@ -234,7 +235,7 @@ input[type="radio"].btn-check:checked+label.category {
     background-color: #c5721f;
     border-radius: 20px;
     color: #ffffff;
-    font-family: 'Century Gothic';
+    font-family: 'Montserrat', sans-serif;
     transition: 0.3s;
 }
 
@@ -276,6 +277,40 @@ input[type="radio"].btn-check:checked+label.category {
     border-radius: 50%;
     height: 220px;
 }
+
+
+/*Nav-bar Css*/
+.navbar-nav .nav-item .nav-link {
+    border-radius: 20px;
+    padding-bottom: 1px;
+    padding-top: 2px;
+    color: rgb(119, 55, 24);
+}
+
+.active {
+    background-color: rgb(128, 98, 61);
+    color: white !important;
+  }
+
+  
+.cart-icon-style {
+    margin-left: 15px; 
+    margin-right: 15px; 
+    padding-bottom: 1px; 
+    padding-top: 2px; 
+    margin-right: 10px;
+}
+
+.user-logo-style {
+    margin-left: 15px; 
+    margin-right: 15px;
+    padding-bottom: 1px; 
+    padding-top: 2px;
+}
+
+
+
+
 
 @media only screen and (max-width: 800px) {
     body {

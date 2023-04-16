@@ -11,9 +11,11 @@
 </head>
 
 <body>
-    <script src="Bootstrap/js/bootstrap.js"></script>
+    <script src="Bootstrap/js/bootstrap.js">
+    </script>
 
-    <div class="modal fade" id="incorrectPasswordModal" tabindex="-1" aria-labelledby="incorrectPasswordModalLabel" aria-hidden="true">
+    <div class="modal fade" id="incorrectPasswordModal" tabindex="-1" aria-labelledby="incorrectPasswordModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content" style="background-color: rgb(251, 235, 211);">
                 <div class="modal-header">
@@ -38,9 +40,12 @@
                 <div class="text_intro">
                     <h3>Hello Customer!</h3>
                     <p>
-                        Welcome to Coffee Plus Plus! Here you will find the best coffee selection and the latest tips, tricks and techniques to help you increase your productivity.
-                        We offer a unique variety of beans from around the world, carefully selected for their depth of flavor and quality ingredients.
-                        Whether you are looking to get an extra boost at work, or just want to relax with a nice cup of coffee, we have something for everyone.
+                        Welcome to Coffee Plus Plus! Here you will find the best coffee selection and the latest tips,
+                        tricks and techniques to help you increase your productivity.
+                        We offer a unique variety of beans from around the world, carefully selected for their depth of
+                        flavor and quality ingredients.
+                        Whether you are looking to get an extra boost at work, or just want to relax with a nice cup of
+                        coffee, we have something for everyone.
                         Come in and explore the world of Coffee Plus Plus today!
                     </p>
                 </div>
@@ -56,7 +61,8 @@
                 <input type="password" id="password" name="password" placeholder="Enter password">
                 <button type="submit" class="login_button">Login</button>
             </form>
-            <p style="  color: black; font-weight:500;">I don't have an account <a href="register.php" style=" color: black; font-weight: bold;"> Register here</a></p>
+            <p style="  color: black; font-weight:500;">I don't have an account <a href="register.php"
+                    style=" color: black; font-weight: bold;"> Register here</a></p>
         </div>
     </div>
 </body>
@@ -70,7 +76,7 @@ $username = isset($_POST['username']) ? $_POST['username'] : '';
 $password = isset($_POST['password']) ? $_POST['password'] : '';
 
 // Create a new MySQLi object and connect to the database
-$mysqli = new mysqli("localhost", "root", "", "coffeeplusplusdb");
+$mysqli = new mysqli("localhost", "root", "password", "coffeeplusplusdb");
 
 // Check for any connection errors
 if ($mysqli->connect_error) {
@@ -101,9 +107,6 @@ if (!empty($username) && !empty($password)) {
               </script>';
     }
 }
-
-
-
 // Close the statement and connection
 $stmt->close();
 $mysqli->close();
