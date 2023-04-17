@@ -1,7 +1,0 @@
-2023-04-15 01:09:16.183 [warning] Via 'product.json#extensionEnabledApiProposals' extension 'ms-vscode.vscode-selfhost-test-provider' wants API proposal 'testContinuousRun' but that proposal DOES NOT EXIST. Likely, the proposal has been finalized (check 'vscode.d.ts') or was abandoned.
-2023-04-15 01:09:16.193 [warning] Via 'product.json#extensionEnabledApiProposals' extension 'ms-vscode.remote-repositories' wants API proposal 'contribEditorGutterMenu' but that proposal DOES NOT EXIST. Likely, the proposal has been finalized (check 'vscode.d.ts') or was abandoned.
-2023-04-15 01:09:16.194 [warning] Via 'product.json#extensionEnabledApiProposals' extension 'github.vscode-pull-request-github' wants API proposal 'contribEditorGutterMenu' but that proposal DOES NOT EXIST. Likely, the proposal has been finalized (check 'vscode.d.ts') or was abandoned.
-2023-04-15 01:09:16.194 [warning] Via 'product.json#extensionEnabledApiProposals' extension 'ms-toolsai.jupyter' wants API proposal 'notebookControllerKind' but that proposal DOES NOT EXIST. Likely, the proposal has been finalized (check 'vscode.d.ts') or was abandoned.
-2023-04-15 01:09:16.548 [info] Started initializing default profile extensions in extensions installation folder. file:///root/.vscode/extensions
-2023-04-15 01:09:16.889 [info] Completed initializing default profile extensions in extensions installation folder. file:///root/.vscode/extensions
-2023-04-15 01:09:19.859 [info] [perf] Render performance baseline is 150ms
