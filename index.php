@@ -112,6 +112,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     </div>
   </div>
   <script src="scripts/generate_item_for_user/itemlist.js"></script>
+
 </body>
 
 </html>
