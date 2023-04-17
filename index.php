@@ -32,15 +32,44 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
   <script src="Bootstrap/js/bootstrap.js"></script>
   <script src="script.js"></script>
 
-  <!--Navbar Included Here-->
-  <div id="navbar"></div>
-  <script src="/scripts/navbar/nav.js"></script>
-
-
-  <div class="purchase-window" id="buy-product-window">
-
-  </div>
-
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="Logo\SVG_LOGO_HORIZONTAL.svg" alt="Brand Logo" style="height: 60px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.php" style="color:white; background-color:rgb(128, 98, 61); border-radius: 20px; padding-bottom: 1px; padding-top: 2px;">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" style="padding-bottom: 1px; padding-top: 2px;" href="aboutpage.php">ABOUT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" style="padding-bottom: 1px; padding-top: 2px;" href="#">CONTACT</a>
+            </li>
+            <li class="nav-item">
+              <a class="cart" href="#" style="margin-left: 15px; margin-right: 15px; padding-bottom: 1px; padding-top: 2px; margin-right: 10px;">
+                <img src="Design Elements\icons\bag.svg" alt="Cart-Icon" height="30px">
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="account" href="userdashboard.php" style="margin-left: 15px; margin-right: 15px; padding-bottom: 1px; padding-top: 2px;">
+                <img src="Design Elements\icons\person-circle.svg" alt="account-Icon" height="30px">
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="logout.php" style="padding-bottom: 1px; padding-top: 2px;">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
 
   <div class="container-fluid">
     <div class="row align-items-center">
