@@ -1,3 +1,5 @@
+const popupContainer = document.getElementById("popup-container");
+
 function print_menulist() {
   fetch('/scripts/generate_item_for_user/get_products.php')
     .then(response => response.json())
@@ -9,51 +11,54 @@ function print_menulist() {
       for (let i = 0; i < products.length; i++) {
         const product = products[i];
 
-        const productCard = document.createElement("div");
-        productCard.classList.add("product", "card");
-        productCard.id = product.id;
-        productCard.setAttribute("data-name", product.dataname);
-
-
-        const image = document.createElement("div");
-        image.classList.add("image");
-
-        const productImage = document.createElement("img");
-        productImage.classList.add("product-image");
-        productImage.src = product.image;
-        productImage.alt = product.name;
-        image.appendChild(productImage);
-
-        const title = document.createElement("div");
-        title.classList.add("title");
-
-        const productName = document.createElement("h2");
-        productName.classList.add("product-name");
-        productName.textContent = product.name;
-        title.appendChild(productName);
-
-        const nutrifacts = document.createElement("div");
-        nutrifacts.classList.add("nutrifacts");
-
-        const calories = document.createElement("div");
-        calories.classList.add("calories");
-        calories.textContent = product.calories;
-        nutrifacts.appendChild(calories);
-
-        const time = document.createElement("div");
-        time.classList.add("time");
-        time.textContent = product.time;
-        nutrifacts.appendChild(time);
+        // code for creating product card ...
 
         const buyButton = document.createElement("a");
         buyButton.classList.add("buybutton");
-        buyButton.href = "#"; //Link of the Buy Button
-        
-        const productPrice = document.createElement("p");
-        productPrice.classList.add("product-price");
-        productPrice.id = "purchase";
-        productPrice.textContent = product.price;
-        buyButton.appendChild(productPrice);
+        buyButton.href = "#";
+        buyButton.addEventListener("click", () => {
+          // create the pop-up window
+          const popup = document.createElement("div");
+          popup.classList.add("popup");
+
+          const popupContent = document.createElement("div");
+          popupContent.classList.add("popup-content");
+
+          const closeButton = document.createElement("span");
+          closeButton.classList.add("close-button");
+          closeButton.innerHTML = "&times;";
+          closeButton.addEventListener("click", () => {
+            popup.remove();
+          });
+
+          const productName = document.createElement("h2");
+          productName.classList.add("product-name");
+          productName.textContent = product.name;
+
+          const productImage = document.createElement("img");
+          productImage.classList.add("product-image");
+          productImage.src = product.image;
+          productImage.alt = product.name;
+
+          const productPrice = document.createElement("p");
+          productPrice.classList.add("product-price");
+          productPrice.textContent = product.price;
+
+          const buyNowButton = document.createElement("button");
+          buyNowButton.classList.add("buy-now-button");
+          buyNowButton.textContent = "Buy Now";
+          buyNowButton.addEventListener("click", () => {
+            // handle buy now button click ...
+          });
+
+          popupContent.appendChild(closeButton);
+          popupContent.appendChild(productName);
+          popupContent.appendChild(productImage);
+          popupContent.appendChild(productPrice);
+          popupContent.appendChild(buyNowButton);
+          popup.appendChild(popupContent);
+          popupContainer.appendChild(popup);
+        });
 
         productCard.appendChild(image);
         productCard.appendChild(title);
@@ -76,5 +81,3 @@ function print_menulist() {
     })
     .catch(error => console.error('Error:', error));
 }
-
-print_menulist();

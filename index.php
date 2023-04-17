@@ -21,11 +21,10 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
   <link rel="stylesheet" href="Bootstrap/css/bootstrap.css" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/scripts/purchase-window/purchase-pop-up-style.css"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,700;0,900;1,300;1,700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,700;0,900;1,300;1,700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -36,10 +35,9 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
   <div id="navbar"></div>
   <script src="/scripts/navbar/nav.js"></script>
 
+  <div id="popup-container"></div>
+  
 
-  <div class="purchase-window" id="buy-product-window">
-
-  </div>
 
 
   <div class="container-fluid">
