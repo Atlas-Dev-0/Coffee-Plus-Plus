@@ -34,8 +34,6 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
   <!--Navbar Included Here-->
   <div id="navbar"></div>
   <script src="/scripts/navbar/nav.js"></script>
-  
-
 
   <div class="container-fluid">
     <div class="row align-items-center">
@@ -79,23 +77,14 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
   </div>
   <script src="scripts/generate_item_for_user/itemlist.js"></script>
 
-
+  <!--Add_to_Cart_Popup_window-->
   <div id="popup" class="popup">
     <div class="popup-inner"></div>
   </div>
-
   <script src="/scripts/purchase-window/purchase_window_script.js"></script>
 
-  
+
 
 </body>
 
 </html>
-
-
-
-<?php
-
-
-
-?>
