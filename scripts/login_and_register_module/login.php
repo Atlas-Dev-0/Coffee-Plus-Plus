@@ -5,17 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COFFEE PLUS-PLUS</title>
-    <link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="login_page_style.css">
+    <link rel="stylesheet" href="/Bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/scripts/login_and_register_module/login_page_style.css">
 
 </head>
 
 <body>
-    <script src="Bootstrap/js/bootstrap.js">
+    <script src="/Bootstrap/js/bootstrap.js">
     </script>
 
-    <div class="modal fade" id="incorrectPasswordModal" tabindex="-1" aria-labelledby="incorrectPasswordModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="incorrectPasswordModal" tabindex="-1" aria-labelledby="incorrectPasswordModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content" style="background-color: rgb(251, 235, 211);">
                 <div class="modal-header">
@@ -34,9 +33,9 @@
 
     <div class="login_page_container container ">
         <div class="brand container" style="float: left;">
-            <img class="brand_logo" src="Logo\SVG_LOGO_HORIZONTAL.svg" alt="Brand Logo">
+            <img class="brand_logo" src="/Logo/SVG_LOGO_HORIZONTAL.svg" alt="Brand Logo">
             <div class="brand_intro_container">
-                <img class="joe" src="Design Elements/characters/joe_animation.gif" alt="Joe animation">
+                <img class="joe" src="/Design Elements/characters/joe_animation.gif" alt="Joe animation">
                 <div class="text_intro">
                     <h3>Hello Customer!</h3>
                     <p>
@@ -61,8 +60,7 @@
                 <input type="password" id="password" name="password" placeholder="Enter password">
                 <button type="submit" class="login_button">Login</button>
             </form>
-            <p style="  color: black; font-weight:500;">I don't have an account <a href="register.php"
-                    style=" color: black; font-weight: bold;"> Register here</a></p>
+            <p style="  color: black; font-weight:500;">I don't have an account <a href="register.php" style=" color: black; font-weight: bold;"> Register here</a></p>
         </div>
     </div>
 </body>
@@ -70,6 +68,8 @@
 </html>
 
 <?php
+
+//LOGIN SCRIPT
 session_start();
 // Get the user's submitted username and password
 $username = isset($_POST['username']) ? $_POST['username'] : '';
@@ -94,7 +94,7 @@ if (!empty($username) && !empty($password)) {
         // Valid credentials - redirect to the home page or another page
         session_start();
         $_SESSION['loggedin'] = true;
-        header("Location: index.php");
+        header("Location: /index.php");
         exit;
     } else {
         // Invalid credentials - display an error message

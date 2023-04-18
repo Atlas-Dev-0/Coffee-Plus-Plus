@@ -1,10 +1,9 @@
 <?php
 // Start the session
 session_start();
-
 // Check if user is logged in, if not, redirect to login page
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-  header("location: login.php");
+  header("location: /scripts/login_and_register_module/login.php");
   exit;
 }
 ?>
@@ -19,8 +18,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
   <title>COFFEE PLUS-PLUS</title>
 
-  <link rel="stylesheet" href="Bootstrap/css/bootstrap.css" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/Bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" href="/css and js/main_page_style.css" />
   <link rel="stylesheet" href="/scripts/purchase-window/purchase_window.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +28,8 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
 <body>
   <script src="Bootstrap/js/bootstrap.js"></script>
-  <script src="script.js"></script>
+  <script src="/css and js/main_page_script.js"></script>
+
 
   <!--Navbar Included Here-->
   <div id="navbar"></div>
@@ -58,7 +58,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
           <input id="searchinput" class="form-control" type="text" placeholder="Search" />
         </div>
         <button type="button" class="search btn btn-primary" id="gosearch">
-          <img src="\Design Elements\icons\search.svg" class="search_icon" height="20px" />
+          <img src="/Design Elements/icons/search.svg" class="search_icon" height="20px" />
         </button>
       </div>
     </div>
@@ -75,16 +75,13 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
       <label class="category btn btn-secondary" for="category-iced">ICED</label>
     </div>
   </div>
-  <script src="scripts/generate_item_for_user/itemlist.js"></script>
+  <script src="/scripts/generate_item_for_user/itemlist.js"></script>
 
   <!--Add_to_Cart_Popup_window-->
   <div id="popup" class="popup">
     <div class="popup-inner"></div>
   </div>
   <script src="/scripts/purchase-window/purchase_window_script.js"></script>
-
-
-
 </body>
 
 </html>

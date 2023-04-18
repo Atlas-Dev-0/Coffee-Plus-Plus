@@ -10,7 +10,6 @@ xhr.onload = function () {
 };
 xhr.send();
 
-
 function HighlightPageFunction() {
   // Get the current page URL
   const currentUrl = window.location.href;
@@ -18,21 +17,24 @@ function HighlightPageFunction() {
   console.log("current page: " + currentUrl);
 
   // Get the navbar links
-  const homeLink = document.getElementById('navbar-home');
-  const aboutLink = document.getElementById('navbar-about');
-  const contactLink = document.getElementById('navbar-contact');
-
-  //check 
+  const homeLink = document.getElementById("navbar-home");
+  const aboutLink = document.getElementById("navbar-about");
+  const contactLink = document.getElementById("navbar-contact");
+  const DashboardUserLink = document.getElementById("user-dash");
+  const SendLogoutRequestCommand = document.getElementById("LogoutREquest");
+  //check
   console.log("home_link_Url " + homeLink);
   console.log("about_link_Url " + aboutLink);
   console.log("contact_link_Url " + contactLink);
+  console.log("user-dash" + DashboardUserLink);
+  console.log("LogoutREquest" + SendLogoutRequestCommand);
 
   // Add the "active" class to the current link
-  if (currentUrl.includes('index.php')) {
-    homeLink.classList.add('active');
-  } else if (currentUrl.includes('aboutpage.php')) {
-    aboutLink.classList.add('active');
-  } else if (currentUrl.includes('contactpage.php')) {
-    contactLink.classList.add('active');
+  if (currentUrl.includes("index.php")) {
+    homeLink.classList.add("active");
+  } else if (currentUrl.includes("aboutpage.php")) {
+    aboutLink.classList.add("active");
+  } else if (currentUrl.includes("contactpage.php")) {
+    contactLink.classList.add("active");
   }
 }
