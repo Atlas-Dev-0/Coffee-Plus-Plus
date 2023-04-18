@@ -55,7 +55,7 @@ if (isset($_POST['submit'])) {
     }
 
     body {
-      background-image: url('Design Elements/UI/Coffee_Background.png');
+      background-image: url('/Design Elements/UI/Coffee_Background.png');
       background-size: cover;
       font-family: sans-serif;
       background-repeat: no-repeat;

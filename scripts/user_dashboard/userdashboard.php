@@ -4,7 +4,7 @@ session_start();
 
 // Check if user is logged in, if not, redirect to login page
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-  header("location: login.php");
+  header("location: /scripts/login_and_register_module/login.php");
   exit;
 }
 ?>
@@ -19,56 +19,19 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>COFFEE PLUS-PLUS</title>
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="Bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="/Bootstrap/css/bootstrap.css">
   <!---CSS Stylesheet-->
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="user_dash.css">
+  <link rel="stylesheet" href="/css and js/main_page_style.css">
+  <link rel="stylesheet" href="/scripts/user_dashboard/user_dash.css">
 
 </head>
 
 
 <body>
-  <header>
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          <img src="Logo\SVG_LOGO_HORIZONTAL.svg" alt="Brand Logo" style="height: 60px;">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="index.php" style="padding-bottom: 1px; padding-top: 2px;">HOME</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="padding-bottom: 1px; padding-top: 2px;" href="aboutpage.php">ABOUT</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="padding-bottom: 1px; padding-top: 2px;" href="#">CONTACT</a>
-            </li>
-            <li class="nav-item">
-              <a class="cart" href="#"
-                style="margin-left: 15px; margin-right: 15px; padding-bottom: 1px; padding-top: 2px; margin-right: 10px;">
-                <img src="Design Elements\icons\bag.svg" alt="Cart-Icon" height="30px">
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="account" href="userdashboard.php"
-                style="margin-left: 15px; margin-right: 15px; padding-bottom: 1px; padding-top: 2px;">
-                <img src="Design Elements\icons\person-circle-selected.svg" alt="account-Icon" height="30px">
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="logout.php" style="padding-bottom: 1px; padding-top: 2px;">Logout</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
+
+  <!--Navbar Included Here-->
+  <div id="navbar"></div>
+  <script src="/scripts/navbar/nav.js"></script>
 
   <div class="dash_profile container">
     <div class="dash_panel container">
@@ -112,7 +75,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             <p>Full Name</p>
           </div>
           <div class="cart ">
-            <img src="Design Elements\icons\bag.svg" alt="Cart-Icon" height="50px">
+            <img src="/Design Elements/icons/bag.svg" alt="Cart-Icon" height="50px">
           </div>
         </div>
         <div class="username_birthday_section">
@@ -162,7 +125,6 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
       </div>
     </div>
   </div>
-
 </body>
 
 </html>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COFFEE PLUS-PLUS</title>
     <link rel="stylesheet" href="/Bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/scripts/login_and_register_module/login_page_style.css">
+    <link rel="stylesheet" href="login_page_style.css">
 
 </head>
 
@@ -33,7 +33,7 @@
 
     <div class="login_page_container container ">
         <div class="brand container" style="float: left;">
-            <img class="brand_logo" src="/Logo/SVG_LOGO_HORIZONTAL.svg" alt="Brand Logo">
+            <img class="brand_logo" src="/Logo/SVG_LOGO_HORIZONTAL_FORMAT.svg" alt="Brand Logo">
             <div class="brand_intro_container">
                 <img class="joe" src="/Design Elements/characters/joe_animation.gif" alt="Joe animation">
                 <div class="text_intro">

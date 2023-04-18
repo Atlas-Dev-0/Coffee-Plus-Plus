@@ -20,7 +20,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="/Bootstrap/css/bootstrap.css">
   <!---CSS Stylesheet-->
-  <script src="/css and js/main_page_script.js"></script>
+  <link rel="stylesheet" href="/css and js/main_page_style.css">
 </head>
 
 <body>

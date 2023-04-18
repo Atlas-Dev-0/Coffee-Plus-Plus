@@ -14,9 +14,9 @@ html {
   transform: translateZ(0);
 }
 
-/* CSS transitions */
-.product {
-  transition: transform 0.3s ease-in-out;
+/*remove product*/
+.remove {
+  display: none !important;
 }
 
 body {
@@ -89,12 +89,12 @@ body {
 
 .search {
   background-color: #6f3d0a !important;
-  transition: 1s;
+  transition: 0.2s;
 }
 
 .search:hover {
-  background-color: #c5721f !important;
-  transition: 1s;
+  background-color: #593410 !important;
+  transition: 0.2s;
 }
 
 .col {
@@ -164,7 +164,7 @@ input[type="radio"].btn-check:checked + label.category {
 }
 
 .product {
-  display: flex !important;
+  display: flex;
   cursor: pointer;
   padding: 10px;
   position: relative;
@@ -288,7 +288,6 @@ input[type="radio"].btn-check:checked + label.category {
   background-color: rgb(128, 98, 61);
   color: white !important;
 }
-
 .cart-icon-style {
   margin-left: 15px;
   margin-right: 15px;
@@ -302,6 +301,23 @@ input[type="radio"].btn-check:checked + label.category {
   margin-right: 15px;
   padding-bottom: 1px;
   padding-top: 2px;
+}
+
+/*Throw Error if Product is non Existent*/
+.showQueryErrorThrow {
+  display: flex !important;
+}
+
+.QueryFailure {
+  display: none;
+  text-align: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.false_Product_Visibility {
+  font-size: 3rem;
+  color: #a67f5c;
 }
 
 @media only screen and (max-width: 800px) {

@@ -27,13 +27,15 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 </head>
 
 <body>
-  <script src="Bootstrap/js/bootstrap.js"></script>
+  <script src="/Bootstrap/js/bootstrap.js"></script>
   <script src="/css and js/main_page_script.js"></script>
-
 
   <!--Navbar Included Here-->
   <div id="navbar"></div>
   <script src="/scripts/navbar/nav.js"></script>
+
+  <!--Product List-->
+  <script src="/scripts/generate_item_for_user/Prnt_MenuAndSearch_Function.js"></script>
 
   <div class="container-fluid">
     <div class="row align-items-center">
@@ -51,15 +53,14 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         </h2>
       </div>
     </div>
-
     <div class="row" style="margin-top: 50px; margin-bottom: 20px">
       <div class="d-flex justify-content-center">
         <div class="input-group">
-          <input id="searchinput" class="form-control" type="text" placeholder="Search" />
+          <input id="UsRqstX" class="form-control" type="text" placeholder="Search" />
+          <button type="button" class="search btn btn-primary" id="gosearch">
+            <img src="/Design Elements/icons/search.svg" class="search_icon" height="20px" />
+          </button>
         </div>
-        <button type="button" class="search btn btn-primary" id="gosearch">
-          <img src="/Design Elements/icons/search.svg" class="search_icon" height="20px" />
-        </button>
       </div>
     </div>
   </div>
@@ -75,12 +76,17 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
       <label class="category btn btn-secondary" for="category-iced">ICED</label>
     </div>
   </div>
-  <script src="/scripts/generate_item_for_user/itemlist.js"></script>
 
+  <div class="QueryFailure container" id="QueryFailure404">
+    <h1 class="false_Product_Visibility">
+      NO PRODUCT FOUND! :(
+    </h1>
+  </div>
   <!--Add_to_Cart_Popup_window-->
   <div id="popup" class="popup">
     <div class="popup-inner"></div>
   </div>
+
   <script src="/scripts/purchase-window/purchase_window_script.js"></script>
 </body>
 
