@@ -1,15 +1,14 @@
-document.addEventListener("DOMContentLoaded", function () {
+window.onload = function () {
   const navbarElement = document.getElementById("navbar");
   const xhr = new XMLHttpRequest();
   xhr.open("GET", "/scripts/navbar/navbar.html", true);
   xhr.onload = function () {
     navbarElement.innerHTML = xhr.responseText;
-
     // Call the function to add the "active" class after the navbar HTML has been loaded
     HighlightPageFunction();
   };
   xhr.send();
-});
+};
 
 function HighlightPageFunction() {
   // Get the current page URL
@@ -23,9 +22,6 @@ function HighlightPageFunction() {
   const DashboardUserLink = document.getElementById("user-dash");
   const SendLogoutRequestCommand = document.getElementById("LogoutREquest");
 
-  // Add the "active" class to the home link by default
-  homeLink.classList.add("active");
-
   // Get the current page URL
   console.log("home_link_Url " + homeLink);
   console.log("about_link_Url " + aboutLink);
@@ -33,17 +29,22 @@ function HighlightPageFunction() {
   console.log("user-dash" + DashboardUserLink);
   console.log("LogoutREquest" + SendLogoutRequestCommand);
 
-  if (!currentUrl.includes("index.php")) {
-    homeLink.classList.remove("active");
-  }
+  //Add the "active" class in home page at the first load time of page
+  homeLink.classList.add("active");
+  console.log("added active class");
 
   // Add the "active" class to the current link
   if (currentUrl.includes("index.php")) {
     homeLink.classList.add("active");
+    console.log("added active class");
   } else if (currentUrl.includes("aboutpage.php")) {
     aboutLink.classList.add("active");
+    homeLink.classList.remove("active");
+    console.log("removed 'added' class");
   } else if (currentUrl.includes("contactpage.php")) {
     contactLink.classList.add("active");
+    homeLink.classList.remove("active");
+    console.log("removed 'added' class");
   }
 
   // Change the user logo when the user picked the dashboard page
