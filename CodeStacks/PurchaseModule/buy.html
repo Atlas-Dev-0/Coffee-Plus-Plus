@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
+    />
+  </head>
+
+  <body>
+    <ul style="list-style-type: none">
+      <li>
+        <form onsubmit="addtocart('Apple')">
+          <label for="Apple_Quantity">Apple</label>
+          <input
+            type="number"
+            id="Apple_Quantity"
+            name="quantity"
+            min="1"
+            max="5"
+          />
+          <input type="submit" value="Add To Cart" />
+        </form>
+      </li>
+      <li>
+        <form onsubmit="addtocart('Banana')">
+          <label for="Banana_Quantity">Banana</label>
+          <input
+            type="number"
+            id="Banana_Quantity"
+            name="quantity"
+            min="1"
+            max="5"
+          />
+          <input type="submit" value="Add To Cart" />
+        </form>
+      </li>
+    </ul>
+
+    <div class="cart">
+      <h1>Cart</h1>
+      <h3>Products</h3>
+    </div>
+  </body>
+</html>
