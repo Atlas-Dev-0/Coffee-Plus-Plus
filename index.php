@@ -19,7 +19,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
   <title>COFFEE PLUS-PLUS</title>
 
   <link rel="stylesheet" href="/Bootstrap/css/bootstrap.css" />
-  <link rel="stylesheet" href="/css and js/main_page_style.css" />
+  <link rel="stylesheet" href="/scripts/MainCSSPage/main_page_style.css" />
   <link rel="stylesheet" href="/scripts/purchase-window/purchase_window.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

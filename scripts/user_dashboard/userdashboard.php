@@ -21,7 +21,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="/Bootstrap/css/bootstrap.css">
   <!---CSS Stylesheet-->
-  <link rel="stylesheet" href="/css and js/main_page_style.css">
+  <link rel="stylesheet" href="/scripts/MainCSSPage/main_page_style.css">
   <link rel="stylesheet" href="/scripts/user_dashboard/user_dash.css">
 
 </head>
