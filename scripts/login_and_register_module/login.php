@@ -60,7 +60,7 @@
                 <input type="password" id="password" name="password" placeholder="Enter password">
                 <button type="submit" class="login_button">Login</button>
             </form>
-            <p style="  color: black; font-weight:500;">I don't have an account <a href="register.php" style=" color: black; font-weight: bold;"> Register here</a></p>
+            <p style="  color: black; font-weight:500;">I don't have an account <a href="/scripts/register/register.php" style=" color: black; font-weight: bold;"> Register here</a></p>
         </div>
     </div>
 </body>

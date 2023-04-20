@@ -30,6 +30,8 @@ if (isset($_POST['submit'])) {
 
   if ($conn->query($sql) === TRUE) {
     echo "Registration successful.";
+    header("location: /scripts/login_and_register_module/login.php");
+    exit;
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }

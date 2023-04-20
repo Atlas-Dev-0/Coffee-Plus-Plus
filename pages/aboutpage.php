@@ -31,7 +31,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="Bootstrap/js/bootstrap.js"></script>
-    <script src="/css and js/main_page_script.js"></script>
 
     <!--Navbar Included Here-->
     <div id="navbar"></div>
@@ -40,24 +39,24 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     <div class="face container d-flex justify-content-center">
       <div class="kenneth">
         <div class="aboutus-card border container">
-          <img src="Design Elements\about_us_image\kenneth.png" alt="">
+          <img src="/Design Elements/about_us_image/kenneth.png" alt="">
         </div>
       </div>
       <div class="maricon">
         <div class="aboutus-card border container">
-          <img src="Design Elements\about_us_image\maricon.png" alt="">
+          <img src="/Design Elements/about_us_image/maricon.png" alt="">
         </div>
 
       </div>
       <div class="roseann">
         <div class="aboutus-card border container">
-          <img src="Design Elements\about_us_image\roseann.png" alt="">
+          <img src="/Design Elements/about_us_image/roseann.png" alt="">
         </div>
 
       </div>
       <div class="maryjoyce">
         <div class="aboutus-card border container">
-          <img src="Design Elements\about_us_image\joyce.png" alt="">
+          <img src="/Design Elements/about_us_image/joyce.png" alt="">
         </div>
 
       </div>

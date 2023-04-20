@@ -27,15 +27,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 </head>
 
 <body>
-  <script src="/Bootstrap/js/bootstrap.js"></script>
-  <script src="/css and js/main_page_script.js"></script>
-
-  <!--Navbar Included Here-->
   <div id="navbar"></div>
-  <script src="/scripts/navbar/nav.js"></script>
-
-  <!--Product List-->
-  <script src="/scripts/generate_item_for_user/Prnt_MenuAndSearch_Function.js"></script>
 
   <div class="container-fluid">
     <div class="row align-items-center">
@@ -82,12 +74,26 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
       NO PRODUCT FOUND! :(
     </h1>
   </div>
-  <!--Add_to_Cart_Popup_window-->
   <div id="popup" class="popup">
     <div class="popup-inner"></div>
   </div>
 
+
+  <!--Bootstrap JS-->
+  <script src="/Bootstrap/js/bootstrap.js"></script>
+
+  <!--
+  Included Navbar
+  Execute TWAS
+  Product List
+  Add_to_Cart_Popup_window
+  -->
+
+  <script src="/scripts/TypeWriterAnimationScript/TWAS.js"></script>
+  <script src="/scripts/navbar/nav.js"></script>
+  <script src="/scripts/generate_item_for_user/Prnt_MenuAndSearch_Function.js"></script>
   <script src="/scripts/purchase-window/purchase_window_script.js"></script>
+
 </body>
 
 </html>

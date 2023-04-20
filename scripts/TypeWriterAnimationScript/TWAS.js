@@ -1,4 +1,4 @@
-//TYPE WRITER ANIMATION SCRIPT
+//T.W.A.S (Type Writer Animation Script)
 
 var TxtType = function (el, toRotate, period) {
   this.toRotate = toRotate;
@@ -43,7 +43,7 @@ TxtType.prototype.tick = function () {
   }, delta);
 };
 
-window.onload = function () {
+function typewriterfunction() {
   var elements = document.getElementsByClassName("typewrite");
   for (var i = 0; i < elements.length; i++) {
     var toRotate = elements[i].getAttribute("data-type");
@@ -56,4 +56,6 @@ window.onload = function () {
   var css = document.createElement("style");
   css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
   document.body.appendChild(css);
-};
+}
+
+typewriterfunction();

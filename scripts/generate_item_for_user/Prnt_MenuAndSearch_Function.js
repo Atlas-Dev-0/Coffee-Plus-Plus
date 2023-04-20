@@ -69,7 +69,7 @@ function Load_Prnt_MenuAndSearch_Function() {
       const productList = document.getElementById("ProdLst_Container");
 
       if (productList) {
-        console.log("PRODUCTLIST FOUND!");
+        console.log("%cPrntMenu is Loaded: ProdLst Found!", "color:green");
         const products = productList.getElementsByClassName("product");
 
         searchInput.addEventListener("input", () => {
@@ -103,7 +103,7 @@ function Load_Prnt_MenuAndSearch_Function() {
           }
         });
       } else {
-        console.log("Product not found");
+        console.log("%cProduct not found :(", "color: red");
       }
 
       //----------------------------------------------------------------------
