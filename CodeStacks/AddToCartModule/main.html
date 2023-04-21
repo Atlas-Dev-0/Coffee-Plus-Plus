@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="customer">
+      <h1 id="UserNAME">Kenneth Gonzales</h1>
+      <p id="userID">12345</p>
+    </div>
+    <br />
+
+    <div class="Apple">
+      <h2 class="name_of_product">Apple</h2>
+      <p>Price:</p>
+      <p class="Product_price">Php 10.00</p>
+      <label for="product_quantity">Quantity:</label>
+      <input
+        type="number"
+        id="product_quantity"
+        name="product_quantity"
+        min="1"
+        max="10"
+        value="1"
+      />
+      <button onclick="addToCart('Apple')">Add to Cart</button>
+    </div>
+
+    <div class="Peanut">
+      <h2 class="name_of_product">Peanut</h2>
+      <p>Price:</p>
+      <p class="Product_price">Php 05.00</p>
+      <label for="product_quantity">Quantity:</label>
+      <input
+        type="number"
+        id="product_quantity"
+        name="product_quantity"
+        min="1"
+        max="10"
+        value="1"
+      />
+      <button onclick="addToCart('Peanut')">Add to Cart</button>
+    </div>
+
+    <div class="Berries">
+      <h2 class="name_of_product">Berries</h2>
+      <p>Price: Php</p>
+      <p class="Product_price">100.00</p>
+      <label for="product_quantity">Quantity:</label>
+      <input
+        type="number"
+        id="product_quantity"
+        name="product_quantity"
+        min="1"
+        max="10"
+        value="1"
+      />
+      <button onclick="addToCart('Berries')">Add to Cart</button>
+    </div>
+
+    <div class="clear">
+      <button id="ClearCart" onclick="clearCart()">Clear Cart</button>
+    </div>
+
+    <!--Product List-->
+    <div class="CartList">
+      <div class="cart">
+        <h2>Cart</h2>
+      </div>
+      <button id="Purchase_Products" onclick="update_Customer_Purchases()">
+        Buy
+      </button>
+    </div>
+
+    <!--To Deliver-->
+    <div class="Orders">
+      <h2>Order</h2>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
