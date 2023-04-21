@@ -6,6 +6,7 @@
 
 //cart is an array/collection of products that the user added or picked from the product list
 const cart = [];
+
 //The cart will be stored in the array "to_Purchase"
 const to_Purchase = [];
 
@@ -53,6 +54,7 @@ function addToCart(product) {
 }
 
 //Function to update the cart with the new order
+
 function updateCart() {
   const cartDiv = document.querySelector(".cart");
   if (Array.isArray(cart) && cart.length === 0) {
@@ -83,6 +85,12 @@ function updateCart() {
 }
 
 function update_Customer_Purchases() {
+  if (cart.length === 0) {
+    console.log("Cart is empty. Cannot update purchases.");
+    alert("Cart is empty. Cannot update purchases.");
+    return;
+  }
+
   const Products_On_Cart = [
     ...cart.map((item) => {
       return {
@@ -104,15 +112,14 @@ function update_Customer_Purchases() {
   to_Purchase.push(purchased);
   console.log("to_Purchase:", to_Purchase);
   clearCart(); // clear the cart after purchases are complete
+
   Display_Orders();
 }
 
 function Display_Orders() {
   //Display the orders as list in the html page
-  if (Array.isArray(to_Purchase) && to_Purchase.length === 0) {
-    document.querySelector(".Orders").innerHTML = `
-    <h2>Your Orders</h2>
-    `;
+  if (to_Purchase.Products === 0) {
+    console.alert("NO PRODUCT PICKED");
   } else {
     document.querySelector(".Orders").innerHTML = `
     <h2>Your Orders</h2>
