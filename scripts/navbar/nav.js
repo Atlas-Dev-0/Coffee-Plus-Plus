@@ -36,6 +36,9 @@ function HighlightPageFunction() {
     contactLink.classList.add("active");
     homeLink.classList.remove("active");
     console.log("%cActive Page: ContactPage.php", "color:green");
+  } else if (currentUrl.includes("cart.php")) {
+    homeLink.classList.remove("active");
+    console.log("%cActive Page: cart.php", "color:green");
   }
 
   // Change the user logo when the user picked the dashboard page

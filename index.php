@@ -85,15 +85,17 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
   </script>
 
   <!--
+    Execute TWAS
   Included Navbar
-  Execute TWAS
   Product List
   Add_to_Cart_Popup_window
+  Customer Purchase Model
   -->
 
   <script src="/scripts/TypeWriterAnimationScript/TWAS.js"></script>
   <script src="/scripts/navbar/nav.js"></script>
   <script src="/scripts/generate_item_for_user/Prnt_MenuAndSearch_Function.js"></script>
+  <script src="/scripts/Customer_Purchase_Model/CustomerPurchaseModel.js"></script>
   <script src="/scripts/purchase-window/purchase_window_script.js"></script>
 
 </body>

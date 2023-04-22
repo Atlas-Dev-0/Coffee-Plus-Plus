@@ -36,3 +36,19 @@ function generateOrderID() {
 
   return orderID;
 }
+
+function addToCart(product) {
+  const product_quantity = document.getElementById("product_quantity");
+  const quantity = product_quantity.value;
+
+  // Add product to cart
+  const addedProduct = {
+    id: product.id,
+    name: product.name,
+    price: product.price,
+    quantity: quantity,
+    image: product.image,
+  };
+  cart.push(addedProduct);
+  console.log("Added product to cart: " + JSON.stringify(cart));
+}
