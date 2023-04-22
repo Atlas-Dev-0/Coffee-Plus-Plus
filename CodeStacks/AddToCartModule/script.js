@@ -151,6 +151,7 @@ function Display_Orders() {
   }
 }
 
+//Clears the CartItems
 function clearCart() {
   cart.splice(0);
   updateCart();

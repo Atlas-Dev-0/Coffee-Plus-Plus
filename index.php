@@ -74,13 +74,15 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
       NO PRODUCT FOUND! :(
     </h1>
   </div>
-  <div id="popup" class="popup">
-    <div class="popup-inner"></div>
+  <div id="popup" class="popup border">
+    <div class="popup-inner pop-up_window_size" style="width: 900px !important;
+  height: 500px !important; border-radius: 20px"></div>
   </div>
 
 
   <!--Bootstrap JS-->
-  <script src="/Bootstrap/js/bootstrap.js"></script>
+  <script src=" /Bootstrap/js/bootstrap.js">
+  </script>
 
   <!--
   Included Navbar

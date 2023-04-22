@@ -7,16 +7,32 @@ function openPopup(product) {
   const popupContent = document.querySelector(".popup-inner");
   popupContent.innerHTML = `
 <h2>${product.name}</h2>
-<img src="${product.image}" alt="${product.name}">
-    <p>${product.description}</p>
+<img src="${product.image}" alt="${product.name}" style="width: 200px;">
+  <div class="product_Description" style="display: flex;"> 
+    <p style=
+    "margin-right: 10px;
+    ">Calories: ${product.calories}</p> 
+    
+    <p style="
+      margin-right: 10px;
+      ">Wait for: ${product.time}</p>
+  </div>
+
+    <label for="product_quantity">Quantity:</label>
+    <input type="number" id="product_quantity" name="product_quantity" min="1" max="10" value="Insert Quantity" 
+      style="
+      width: 40px; 
+      text-align: center;"
+    />
     <p>${product.price}</p>
     <button id="add-to-cart-popup-btn" class="add-to-cart-popup-btn">Add to Cart</button>
-    <button id="close-popup-btn" class="close-btn">Close</button>
+    <button id="close-popup-btn" class="close-btn" style="border-radius: 20px !important; width: 44px; background-color: red !important; color: white;">X</button>
   `;
 
   const closeBtn = document.getElementById("close-popup-btn");
   closeBtn.addEventListener("click", closePopup);
 }
+
 //This function closes the popup
 function closePopup() {
   const popup = document.getElementById("popup");
