@@ -5,9 +5,6 @@
  *
  */
 
-//cart is an array of product collection picked by the customer
-const cart = [];
-
 function generateOrderID() {
   // Generate date string in format YYMMDD
   const date = new Date();
@@ -37,6 +34,24 @@ function generateOrderID() {
   return orderID;
 }
 
+// Retrieve cart from localStorage
+function getCartFromLocalStorage() {
+  const cartString = localStorage.getItem("cart");
+  if (cartString) {
+    return JSON.parse(cartString); //returns the parsed JSON string as an array
+  } else {
+    return []; //returns an empty array
+  }
+}
+
+//cart is an array of product collection picked by the customer
+let cart = getCartFromLocalStorage();
+
+// Save cart to localStorage
+function saveCartToLocalStorage() {
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
 function addToCart(product) {
   const product_quantity = document.getElementById("product_quantity");
   const quantity = product_quantity.value;
@@ -50,5 +65,15 @@ function addToCart(product) {
     image: product.image,
   };
   cart.push(addedProduct);
+
+  // Save cart to localStorage
+  saveCartToLocalStorage();
+
   console.log("Added product to cart: " + JSON.stringify(cart));
 }
+
+// Retrieve cart from localStorage when page loads
+cart = getCartFromLocalStorage();
+
+//Display Cart
+console.log("Products on cart: " + JSON.stringify(cart));
