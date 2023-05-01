@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/Bootstrap/css/bootstrap.css">
     <!---CSS Stylesheet-->
     <link rel="stylesheet" href="/scripts/MainCSSPage/main_page_style.css">
+    <link rel="stylesheet" href="/scripts/Customer_Purchase_Model/cart-style.css">
 </head>
 
 <body>
@@ -26,14 +27,13 @@
         <h1>Cart</h1>
         <div class="product-box container border" id="product-container">
             <!-- Include here the added products in cart -->
-
         </div>
     </div>
 
+    <!-- Import Cart from CPM -->
+    <script src="/scripts/Customer_Purchase_Model/CustomerPurchaseModel.js"></script>
+
 
 </body>
-
-
-
 
 </html>

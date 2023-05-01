@@ -34,6 +34,9 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
       <div class="kenneth">
         <div class="aboutus-card border container">
           <img src="/Design Elements/about_us_image/kenneth.png" alt="">
+          <div class="name">
+            <h2>Kenneth Gonzales</h2>
+          </div>
         </div>
       </div>
       <div class="maricon">
