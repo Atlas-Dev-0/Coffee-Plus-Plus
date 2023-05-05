@@ -146,6 +146,9 @@ function displayCart() {
     cartContainer.appendChild(cartProduct);
   });
 }
-
-// Display the updated cart
-displayCart();
+const UrlPageQueue = window.location.href;
+if (UrlPageQueue.includes("cart")) {
+  // Display the updated cart
+  displayCart();
+} else {
+}
