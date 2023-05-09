@@ -7,6 +7,16 @@
   background-color: rgb(216, 183, 139);
   border-radius: 30px;
 }
+
+.cart-title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart-title {
+  margin-bottom: 20px;
+}
+
 .cart-image-container {
   width: 200px;
   text-align: center;
@@ -32,4 +42,13 @@
 .cart-product-price {
   font-weight: bold;
   border-radius: 10px;
+}
+
+.empty_notif {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 50px;
 }

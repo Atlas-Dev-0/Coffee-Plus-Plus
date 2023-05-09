@@ -79,6 +79,26 @@ cart = getCartFromLocalStorage();
 //Display Cart
 console.log("Products on cart: " + JSON.stringify(cart));
 
+function clearCart() {
+  // Empty the cart array
+  cart = [];
+
+  // Save the empty cart to localStorage
+  saveCartToLocalStorage();
+
+  // Log cart on console to verify it's empty
+  console.log("Cart cleared: " + JSON.stringify(cart));
+}
+
+// Get the clear-cart-button element
+const clearCartButton = document.getElementById("clear-cart-button");
+
+//Event Listener
+clearCartButton.addEventListener("click", function () {
+  displayCart();
+  clearCartButton();
+});
+
 function displayCart() {
   // Get the cart container
   const cartContainer = document.getElementById("product-container");
@@ -91,7 +111,7 @@ function displayCart() {
 
   // If the cart is empty, display a message
   if (!cartItems || cartItems.length === 0) {
-    cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+    cartContainer.innerHTML = `<p class="empty_notif">Your cart is empty.</p>`;
     return;
   }
 
