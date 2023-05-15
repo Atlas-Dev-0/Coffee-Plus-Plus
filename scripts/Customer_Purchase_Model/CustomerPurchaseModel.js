@@ -36,7 +36,7 @@ function generateOrderID() {
 
 // Retrieve cart from localStorage
 function getCartFromLocalStorage() {
-  const cartString = localStorage.getItem("cart");
+ const cartString = localStorage.getItem("cart");
   if (cartString) {
     return JSON.parse(cartString); //returns the parsed JSON string as an array
   } else {
@@ -96,7 +96,7 @@ const clearCartButton = document.getElementById("clear-cart-button");
 //Event Listener
 clearCartButton.addEventListener("click", function () {
   displayCart();
-  clearCartButton();
+  clearCart();
 });
 
 function displayCart() {
