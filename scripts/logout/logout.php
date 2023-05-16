@@ -8,5 +8,5 @@ $_SESSION = array();
 session_destroy();
 
 // Redirect to login page
-header("location: /scripts/login_and_register_module/login.php");
+header("location: /scripts/login_module/login.php");
 exit;

@@ -17,7 +17,7 @@ if ($mysqli->connect_error) {
 }
 
 // Retrieve the address data from the table
-$query = "SELECT username, name, address, address_work, address_friend, address_school FROM customer_user_credentials_and_information LIMIT 1";
+$query = "SELECT username, name, address, dob, address_work, address_friend, address_school FROM customer_user_credentials_and_information LIMIT 1";
 $result = $mysqli->query($query);
 
 
@@ -26,7 +26,16 @@ if ($result->num_rows > 0) {
   $row = $result->fetch_assoc();
   $username = $row['username'];
   $fullname = $row['name'];
+
+  // Split the full name into first name and last name
+  $nameParts = explode(", ", $fullname);
+  $lastName = $nameParts[0];
+  $firstName = $nameParts[1];
+  // Reconstruct the full name with last name at the end
+  $fullname = $firstName . ' ' . $lastName;
+
   $address = $row['address'];
+  $dob = $row['dob'];
   $addressWork = $row['address_work'];
   $addressFriend = $row['address_friend'];
   $addressSchool = $row['address_school'];
@@ -65,67 +74,36 @@ $mysqli->close();
   <!--Navbar Included Here-->
   <div id="navbar"></div>
   <script src="/scripts/navbar/nav.js"></script>
-
   <div class="dash_profile container">
     <div class="dash_panel container">
-
-      <div class="user_card">
-        <div class="profilepicture">
-        </div>
-        <p class="bio">Bio:</p>
-        <h1>
-          Kenneth Gonzales
-        </h1>
-        <div class="bio_desc">
-          <p class="bio_data">
-            "I am Kenneth, the founder and head barista of this charming little coffee shop. “
-          </p>
-        </div>
-        <div class="setting_buttons">
-          <label>
-            <input type="radio" name="setting" value="account">
-            <span>Account</span>
-          </label>
-          <label>
-            <input type="radio" name="setting" value="settings">
-            <span>Settings</span>
-          </label>
-          <label>
-            <input type="radio" name="setting" value="orders">
-            <span>Orders</span>
-          </label>
-          <label>
-            <input type="radio" name="setting" value="payment">
-            <span>Payment</span>
-          </label>
-        </div>
-
-      </div>
       <div class="details container-fluid ">
         <div class="fullname_and_cart">
           <div class="fullname">
-            <h1 class="">Kenneth Gonzales</h1>
+            <h1 class=""><?php echo $fullname; ?></h1>
             <p>Full Name</p>
           </div>
-          <div class="cart ">
+          <div class="dash-cart ">
             <img src="/Design Elements/icons/bag.svg" alt="Cart-Icon" height="50px">
           </div>
         </div>
         <div class="username_birthday_section">
           <div class="username">
-            <h1>gonzales777</h1>
+            <h1><?php echo $username; ?></h1>
             <p>Username</p>
           </div>
           <div class="birthdate">
-            <h1>Jan. 7, 2003</h1>
+            <h1><?php echo date('F j, Y', strtotime($dob)); ?></h1>
             <p>Birthdate</p>
           </div>
         </div>
-        <div class="edit_button ">
-          <button class="edit">EDIT</button>
+        <div class="button_settings">
+
+          <button>My Orders</button>
+          <button>Delete Account</button>
+
         </div>
 
-        <div class="white_line_divider"></div>
+        <div class=" white_line_divider"></div>
 
         <div class="address_panel">
           <h1>

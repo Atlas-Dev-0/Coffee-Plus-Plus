@@ -14,10 +14,10 @@
 
 .details {
   float: right;
-  width: 572px;
+  width: 848px;
   height: 500px;
   margin-top: 20px;
-  margin-right: 23px;
+  margin-right: 58px;
 }
 
 .fullname_and_cart {
@@ -29,7 +29,7 @@
   color: #333333;
   font-size: 50px;
   margin-top: 20px;
-  font-family: "Century Gothic";
+  font-family: "Montserrat", sans-serif;
   font-weight: bold;
   margin-left: 10px;
   margin-right: 0px;
@@ -40,33 +40,55 @@
 .fullname p {
   color: #fffddd;
   margin-top: 0px;
-  font-family: "Century Gothic";
+  font-family: "Montserrat", sans-serif;
   font-size: 20px;
   font-weight: 200;
   margin-left: 10px;
 }
 
-.cart {
+.dash-cart {
   margin-top: 20px;
   width: max-content;
   height: max-content;
   padding: 0px;
-  margin-left: 20px;
+  margin-left: 333px;
   margin-right: 0px;
 }
 
 .username_birthday_section {
   display: flex;
   flex-direction: row;
+  height: 20px;
+}
+
+.button_settings {
+  margin-top: 63px;
+  margin-bottom: -25px;
+  display: flex;
+}
+
+.button_settings button {
+  color: white;
+  background-color: #552e19;
+  border-radius: 20px;
+  height: 35px;
+  width: 138px;
+  border: none;
+  margin-right: 20px;
+  transition: 0.2s;
+}
+.button_settings button:hover {
+  transition: 0.2s;
+  box-shadow: -1px 4px black;
 }
 
 .username {
-  margin-right: 15px;
+  margin-right: 45px;
 }
 
 .username h1 {
   color: #333333;
-  font-family: "Century Gothic";
+  font-family: "Montserrat", sans-serif;
   font-weight: bold;
   margin-left: 10px;
   margin-bottom: 0px;
@@ -74,18 +96,24 @@
   margin-top: 2px;
 }
 
+.fullname {
+  width: 791px;
+}
 .username p {
   color: #fffddd;
   margin-top: 0px;
-  font-family: "Century Gothic";
+  font-family: "Montserrat", sans-serif;
   font-size: 20px;
   font-weight: 200;
   margin-left: 10px;
 }
 
+.birthdate {
+  margin-left: 144px;
+}
 .birthdate h1 {
   color: #333333;
-  font-family: "Century Gothic";
+  font-family: "Montserrat", sans-serif;
   font-weight: bold;
   margin-left: 10px;
   margin-bottom: 0px;
@@ -96,30 +124,10 @@
 .birthdate p {
   color: #fffddd;
   margin-top: 0px;
-  font-family: "Century Gothic";
+  font-family: "Montserrat", sans-serif;
   font-size: 20px;
   font-weight: 200;
   margin-left: 10px;
-}
-
-.edit_button {
-  margin-left: 10px;
-  width: max-content;
-  height: max-content;
-  margin-top: -50px;
-}
-
-.edit {
-  height: 24px;
-  border: none;
-  width: 70px;
-  border-radius: 20px;
-  background-color: #602712;
-  font-family: "Century Gothic";
-  color: #fffddd;
-  font-weight: bolder;
-  font-size: 15px;
-  margin-left: 460px;
 }
 
 .white_line_divider {
@@ -131,6 +139,7 @@
 
 .address_panel {
   height: 230px;
+  margin-top: -28px;
 }
 
 .address_panel h1 {
@@ -183,7 +192,7 @@
   font-size: 13px;
   font-weight: bolder;
   color: #fff;
-  font-family: "Century Gothic";
+  font-family: "Montserrat", sans-serif;
 }
 
 .address_box p {
@@ -196,135 +205,5 @@
   font-size: 10px;
   font-weight: lighter;
   color: #fff;
-  font-family: "Century Gothic";
-}
-
-.user_card {
-  margin-top: 20px;
-  margin-left: 10px;
-  float: left;
-  background-color: #fffddd;
-  height: 500px;
-  width: 300px;
-  border-radius: 20px;
-  box-shadow: -5px 10px #552e19;
-  position: relative;
-}
-
-.profilepicture {
-  border-radius: 50%;
-  width: 170px;
-  height: 170px;
-  background-color: #000000;
-  border-color: #602712;
-  border-width: 10px;
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-bottom: 0px;
-}
-
-.user_card h1 {
-  position: absolute;
-  top: 216px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 29px;
-  font-weight: bold;
-  font-family: "Century Gothic";
-  width: max-content;
-}
-
-.bio {
-  position: absolute;
-  top: 250px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 15px;
-  font-weight: bold;
-  font-family: "Century Gothic";
-  width: max-content;
-}
-
-.bio_desc {
-  margin-top: 90px;
-  position: relative;
-  /* Set to relative */
-  top: 220px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  border-radius: 20px;
-  padding: 5px;
-  width: 234px;
-  height: 91px;
-}
-
-.bio_data {
-  position: absolute;
-  /* Set to absolute */
-  top: 50%;
-  /* Position in the middle */
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin-top: 6px;
-  text-align: center;
-  width: 220px;
-  height: 85px;
-  font-size: 15px;
-  font-family: "Century Gothic";
-}
-
-.setting_buttons {
-  position: relative;
-  border-radius: 20px;
-  padding: 5px;
-  width: 260px;
-  height: 110px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 197px;
-  margin-left: auto;
-  margin-right: auto;
-  gap: 1px;
-}
-
-.setting_buttons label {
-  position: relative;
-  display: inline-block;
-  width: 98px;
-  height: 41px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.setting_buttons input[type="radio"] {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.setting_buttons span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: #602712;
-  border-radius: 20px;
-  font-family: "Century Gothic";
-  font-size: 10px;
-  font-weight: bolder;
-  color: #fffddd;
-  text-align: center;
-  line-height: 41px;
-  cursor: pointer;
-}
-
-.setting_buttons input[type="radio"]:checked + span {
-  box-shadow: -3px 5px #888675;
+  font-family: "Montserrat", sans-serif;
 }

@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 }
 
 // Execute SQL query to fetch data
-$sql = "SELECT * FROM coffees";
+$sql = "SELECT * FROM coffee_product_catalog";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -21,7 +21,7 @@ if ($result->num_rows > 0) {
   $products = array();
   while ($row = $result->fetch_assoc()) {
     $product = array(
-      "id" => $row["id"],
+      "product_id" => $row["product_id"],
       "name" => $row["name"],
       "image" => $row["image"],
       "calories" => $row["calories"],
@@ -36,4 +36,3 @@ if ($result->num_rows > 0) {
 }
 
 $conn->close();
-?>
