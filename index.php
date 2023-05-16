@@ -3,7 +3,7 @@
 session_start();
 // Check if user is logged in, if not, redirect to login page
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-  header("location: /scripts/login_and_register_module/login.php");
+  header("location: /scripts/login_module/login.php");
   exit;
 }
 ?>

@@ -36,6 +36,10 @@
     <!-- Import Cart from CPM -->
     <script src="/scripts/Customer_Purchase_Model/CustomerPurchaseModel.js"></script>
 
+    <!-- Bootstrap JavaScript -->
+    <script src="/Bootstrap/js/bootstrap.js"></script>
+
+
 
 </body>
 

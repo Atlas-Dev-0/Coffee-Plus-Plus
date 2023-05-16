@@ -7,7 +7,40 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
   header("location: /scripts/login_and_register_module/login.php");
   exit;
 }
+
+// Create a new MySQLi object and connect to the database
+$mysqli = new mysqli("localhost", "root", "password", "coffeeplusplusdb");
+
+// Check for any connection errors
+if ($mysqli->connect_error) {
+  die("Connection failed: " . $mysqli->connect_error);
+}
+
+// Retrieve the address data from the table
+$query = "SELECT username, name, address, address_work, address_friend, address_school FROM customer_user_credentials_and_information LIMIT 1";
+$result = $mysqli->query($query);
+
+
+// Check if a row was returned
+if ($result->num_rows > 0) {
+  $row = $result->fetch_assoc();
+  $username = $row['username'];
+  $fullname = $row['name'];
+  $address = $row['address'];
+  $addressWork = $row['address_work'];
+  $addressFriend = $row['address_friend'];
+  $addressSchool = $row['address_school'];
+} else {
+  $address = "No address found";
+  $addressWork = "No work address found";
+  $addressFriend = "No friend address found";
+  $addressSchool = "No school address found";
+}
+
+// Close the database connection
+$mysqli->close();
 ?>
+
 
 
 <!DOCTYPE html>
@@ -99,25 +132,24 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             Addresses:
           </h1>
           <div class="address_box_container container ">
-
             <div class="address_box ">
-              <p class="name_of_address ">HOME</p>
-              <p class="">Regidor Street, Market site, Daraga, Albay</p>
+              <p class="name_of_address">HOME</p>
+              <p class=""><?php echo $address; ?></p>
               <p class="">09925665753</p>
             </div>
             <div class="address_box ">
-              <p class="name_of_address ">SCHOOL</p>
-              <p class="">Feliziedad Subd, Sugcad, Polangui, Albay</p>
+              <p class="name_of_address">WORKPLACE</p>
+              <p class=""><?php echo $addressWork; ?></p>
               <p class="">09925665753</p>
             </div>
             <div class="address_box ">
-              <p class="name_of_address ">WORKPLACE</p>
-              <p class="">Em's, Albay, Legazpi</p>
+              <p class="name_of_address">FRIEND</p>
+              <p class=""><?php echo $addressFriend; ?></p>
               <p class="">09925665753</p>
             </div>
             <div class="address_box ">
-              <p class="name_of_address ">FRIEND</p>
-              <p class="">Balaguer, Daraga, Albay</p>
+              <p class="name_of_address">SCHOOL</p>
+              <p class=""><?php echo $addressSchool; ?></p>
               <p class="">09925665753</p>
             </div>
           </div>
