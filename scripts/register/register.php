@@ -73,7 +73,7 @@ if (isset($_POST['submit'])) {
       margin: 50px auto;
       padding: 20px;
       margin-top: 150px;
-      background-image: url('/Design Elements/UI/user_dash_panel.jpg');
+      background-image: url('/Design Elements/UI/register-window.jpg');
       background-size: cover;
       border-radius: 10px;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);

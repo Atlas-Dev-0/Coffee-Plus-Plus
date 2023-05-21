@@ -13,16 +13,22 @@ function openPopup(product) {
   // Fill the popup with product information
   const popupContent = document.querySelector(".popup-inner");
   popupContent.innerHTML = `
-  <h2>${product.name}</h2>
-  <img src="${product.image}" alt="${product.name}" style="width: 200px;">
-  <div class="product_Description" style="display: flex;"> 
-    <p style="margin-right: 10px;">Calories: ${product.calories}</p> 
-    <p style="margin-right: 10px;">Wait for: ${product.time}</p>
+  <div class="product_image_container container">
+    <img class="product_image_display" src="${product.image}" alt="${product.name}">
   </div>
-  <label for="product_quantity">Quantity:</label>
-  <input type="number" id="product_quantity" name="product_quantity" min="1" max="10" value="1" style="width: 40px; text-align: center;"/>
-  <p>${product.price}</p>
-  <button id="add-to-cart-popup-btn" class="add-to-cart-popup-btn">Add to Cart</button>
+  <div class="product_full_description">
+    <h2>${product.name}</h2>
+  <div class="product_minimal_desc" style="display: flex;"> 
+  <p style="margin-right: 10px;">Calories: ${product.calories}</p> 
+  <p style="margin-right: 10px;">Wait for: ${product.time}</p>
+  </div>
+  <div class="lower_desc_section">
+    <p class="price" >Price: ${product.price}</p>
+    <label class="quantity_text" for="product_quantity">Quantity:</label>
+    <input type="number" id="product_quantity" name="product_quantity" min="1" max="10" value="1" style="width: 40px; text-align: center;"/>
+    <button id="add-to-cart-popup-btn" class="add-to-cart-popup-btn">Add to Cart</button>
+  </div>
+  </div>
   <button id="close-popup-btn" class="close-btn" style="border-radius: 20px !important; width: 44px; background-color: red !important; color: white;">X</button>
 `;
 

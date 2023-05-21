@@ -9,6 +9,7 @@
   border-radius: 30px;
   width: 950px;
   height: 550px;
+  border: 2px solid #552e19;
   box-shadow: -5px 10px #552e19;
 }
 
@@ -32,9 +33,9 @@
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
   margin-left: 10px;
-  margin-right: 0px;
+  margin-right: -71px;
   margin-bottom: 0px;
-  width: 450px;
+  width: 548px;
 }
 
 .fullname p {
@@ -134,7 +135,7 @@
   margin-top: 40px;
   margin-bottom: 40px;
   height: 2px;
-  background-color: white;
+  background-color: #552e19;
 }
 
 .address_panel {

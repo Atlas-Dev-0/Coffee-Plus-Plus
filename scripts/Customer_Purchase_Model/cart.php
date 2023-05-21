@@ -23,13 +23,20 @@
 
 
     <!-- This container will contain the list of products inside the cart -->
-    <div class="container">
-        <div class="cart-title-container container">
+    <div class="cart_page_container container border">
+        <div class="cart-title-container container ">
             <h1 class="cart-title" style="margin-right: 20px">Order</h1>
             <button class="clear-cart-button" id="clear-cart-button">Clear</button>
         </div>
-        <div class=" product-box container" id="product-container">
-            <!-- Include here the added products in cart -->
+
+        <div class="cart_bottom_section container ">
+
+            <div class="product-box container " id="product-container">
+                <!-- Include here the added products in cart -->
+            </div>
+            <div class="buy_section ">
+
+            </div>
         </div>
     </div>
 
