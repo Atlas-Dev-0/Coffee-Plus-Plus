@@ -148,10 +148,23 @@ function displayCart() {
     quantity.classList.add("cart-product-quantity");
     quantity.textContent = `Quantity: ${item.quantity}`;
 
+    // Extract the numeric value from the price string
+    const priceValue = parseFloat(item.price.replace(/[^\d.-]/g, ""));
+
+    // Calculate the total price by multiplying the quantity with the numeric price value
+    const totalOrderPrice = parseFloat(item.quantity) * priceValue;
+
     // Create a span for the price
     const price = document.createElement("p");
     price.classList.add("cart-product-price");
-    price.textContent = `Price: ${item.price}`;
+    price.textContent = `Total Price: ${totalOrderPrice}`;
+
+    //Error Catch
+    if (isNaN(totalOrderPrice)) {
+      price.textContent = "Invalid price or quantity";
+    } else {
+      price.textContent = `Total Price: ${totalOrderPrice}`;
+    }
 
     // Append the elements to their respective containers
     subDescription.appendChild(quantity);
