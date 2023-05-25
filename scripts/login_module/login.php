@@ -1,3 +1,65 @@
+<?php
+// LOGIN SCRIPT
+session_start();
+// Get the user's submitted username and password
+$username = isset($_POST['username']) ? $_POST['username'] : '';
+$password = isset($_POST['password']) ? $_POST['password'] : '';
+
+// Create a new MySQLi object and connect to the database
+$mysqli = new mysqli("localhost", "root", "password", "coffeeplusplusdb");
+
+// Check for any connection errors
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
+}
+
+// Prepare a SQL statement to select the user's credentials from the table
+$stmt = $mysqli->prepare("SELECT * FROM customer_user_credentials_and_information WHERE username = ? AND password = ?");
+$stmt->bind_param("ss", $username, $password);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if (!empty($username) && !empty($password)) {
+    if ($result->num_rows === 1) {
+        // Valid credentials - retrieve the user's information
+        $row = $result->fetch_assoc();
+        $userInformation = [
+            'customer_id' => $row['customer_id'],
+            'username' => $row['username'],
+            'name' => $row['name'],
+            'dob' => $row['dob'],
+            'address' => $row['address'],
+            'address_work' => $row['address_work'],
+            'contact_number' => $row['contact_number'],
+            'address_friend' => $row['address_friend'],
+            'address_school' => $row['address_school']
+        ];
+
+        // Store the user's information in a session variable
+        $_SESSION['userInformation'] = $userInformation;
+
+        // Set the session variable and redirect to the home page or another page
+        $_SESSION['loggedin'] = true;
+        header("Location: /index.php");
+        exit;
+    } else {
+        // Invalid credentials - display an error message
+        echo '<script>
+                var incorrectPasswordModal = new bootstrap.Modal(document.getElementById("incorrectPasswordModal"), {
+                    backdrop: "static",
+                    keyboard: false
+                });
+                incorrectPasswordModal.show();
+              </script>';
+    }
+}
+
+// Close the statement and connection
+$stmt->close();
+$mysqli->close();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,48 +128,3 @@
 </body>
 
 </html>
-
-<?php
-
-//LOGIN SCRIPT
-session_start();
-// Get the user's submitted username and password
-$username = isset($_POST['username']) ? $_POST['username'] : '';
-$password = isset($_POST['password']) ? $_POST['password'] : '';
-
-// Create a new MySQLi object and connect to the database
-$mysqli = new mysqli("localhost", "root", "password", "coffeeplusplusdb");
-
-// Check for any connection errors
-if ($mysqli->connect_error) {
-    die("Connection failed: " . $mysqli->connect_error);
-}
-
-// Prepare a SQL statement to select the user's credentials from the table
-$stmt = $mysqli->prepare("SELECT * FROM customer_user_credentials_and_information WHERE username = ? AND password = ?");
-$stmt->bind_param("ss", $username, $password);
-$stmt->execute();
-$result = $stmt->get_result();
-
-if (!empty($username) && !empty($password)) {
-    if ($result->num_rows === 1) {
-        // Valid credentials - redirect to the home page or another page
-        session_start();
-        $_SESSION['loggedin'] = true;
-        header("Location: /index.php");
-        exit;
-    } else {
-        // Invalid credentials - display an error message
-        echo '<script>
-                var incorrectPasswordModal = new bootstrap.Modal(document.getElementById("incorrectPasswordModal"), {
-                    backdrop: "static",
-                    keyboard: false
-                });
-                incorrectPasswordModal.show();
-              </script>';
-    }
-}
-// Close the statement and connection
-$stmt->close();
-$mysqli->close();
-?>

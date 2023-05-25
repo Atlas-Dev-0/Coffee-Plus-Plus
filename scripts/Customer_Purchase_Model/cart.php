@@ -45,9 +45,6 @@
 
     <!-- Bootstrap JavaScript -->
     <script src="/Bootstrap/js/bootstrap.js"></script>
-
-
-
 </body>
 
 </html>

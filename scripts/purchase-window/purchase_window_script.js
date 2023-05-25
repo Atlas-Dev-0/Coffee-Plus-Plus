@@ -40,6 +40,7 @@ function openPopup(product) {
     const quantityInput = document.getElementById("product_quantity");
     const quantity = parseInt(quantityInput.value);
     const productToAdd = {
+      customerId: //here
       id: product.id,
       name: product.name,
       price: product.price,

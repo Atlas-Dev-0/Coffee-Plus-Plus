@@ -8,46 +8,18 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
   exit;
 }
 
-// Create a new MySQLi object and connect to the database
-$mysqli = new mysqli("localhost", "root", "password", "coffeeplusplusdb");
 
-// Check for any connection errors
-if ($mysqli->connect_error) {
-  die("Connection failed: " . $mysqli->connect_error);
-}
-
-// Retrieve the address data from the table
-$query = "SELECT username, name, address, dob, address_work, address_friend, address_school FROM customer_user_credentials_and_information LIMIT 1";
-$result = $mysqli->query($query);
-
-
-// Check if a row was returned
-if ($result->num_rows > 0) {
-  $row = $result->fetch_assoc();
-  $username = $row['username'];
-  $fullname = $row['name'];
-
-  // Split the full name into first name and last name
-  $nameParts = explode(", ", $fullname);
-  $lastName = $nameParts[0];
-  $firstName = $nameParts[1];
-  // Reconstruct the full name with last name at the end
-  $fullname = $firstName . ' ' . $lastName;
-
-  $address = $row['address'];
-  $dob = $row['dob'];
-  $addressWork = $row['address_work'];
-  $addressFriend = $row['address_friend'];
-  $addressSchool = $row['address_school'];
+// Check if the userInformation session variable is set
+if (isset($_SESSION['userInformation'])) {
+  // Retrieve the userInformation from the session
+  $userInformation = $_SESSION['userInformation'];
+  // Convert userInformation to JSON
+  $userInformationJSON = json_encode($userInformation);
 } else {
-  $address = "No address found";
-  $addressWork = "No work address found";
-  $addressFriend = "No friend address found";
-  $addressSchool = "No school address found";
+  // Set userInformation to an empty array if not set
+  $userInformationJSON = '[]';
 }
 
-// Close the database connection
-$mysqli->close();
 ?>
 
 
@@ -79,20 +51,44 @@ $mysqli->close();
       <div class="details container-fluid ">
         <div class="fullname_and_cart">
           <div class="fullname">
-            <h1 class=""><?php echo $fullname; ?></h1>
+            <h1 class="dynamic-font-size" id="fullname"><?php echo $userInformation['name'] ?></h1>
             <p>Full Name</p>
           </div>
+
+          <script>
+            function adjustFontSize() {
+              const fullnameElement = document.getElementById('fullname');
+              const containerWidth = fullnameElement.offsetWidth;
+              const containerHeight = fullnameElement.offsetHeight;
+              const textWidth = fullnameElement.scrollWidth;
+              const textHeight = fullnameElement.scrollHeight;
+              const widthRatio = containerWidth / textWidth;
+              const heightRatio = containerHeight / textHeight;
+              const ratio = Math.min(widthRatio, heightRatio);
+
+              const maxFontSize = 50;
+              const minFontSize = 34;
+              const fontSize = Math.min(maxFontSize, maxFontSize * ratio, minFontSize);
+
+              fullnameElement.style.fontSize = fontSize + 'px';
+            }
+
+            window.addEventListener('resize', adjustFontSize);
+            adjustFontSize();
+          </script>
+
           <div class="dash-cart ">
             <img src="/Design Elements/icons/bag.svg" alt="Cart-Icon" height="50px">
           </div>
         </div>
         <div class="username_birthday_section">
           <div class="username">
-            <h1><?php echo $username; ?></h1>
+            <h1><?php echo $userInformation['username'] ?></h1>
             <p>Username</p>
           </div>
           <div class="birthdate">
-            <h1><?php echo date('F j, Y', strtotime($dob)); ?></h1>
+            <h1><?php echo date('M d, Y', strtotime($userInformation['dob'])); ?></h1>
+
             <p>Birthdate</p>
           </div>
         </div>
@@ -112,22 +108,22 @@ $mysqli->close();
           <div class="address_box_container container ">
             <div class="address_box ">
               <p class="name_of_address">HOME</p>
-              <p class=""><?php echo $address; ?></p>
+              <p class=""><?php echo $userInformation['address'] ?></p>
               <p class="">09925665753</p>
             </div>
             <div class="address_box ">
               <p class="name_of_address">WORKPLACE</p>
-              <p class=""><?php echo $addressWork; ?></p>
+              <p class=""><?php echo $userInformation['address_work'] ?></p>
               <p class="">09925665753</p>
             </div>
             <div class="address_box ">
               <p class="name_of_address">FRIEND</p>
-              <p class=""><?php echo $addressFriend; ?></p>
+              <p class=""><?php echo $userInformation['address_friend'] ?></p>
               <p class="">09925665753</p>
             </div>
             <div class="address_box ">
               <p class="name_of_address">SCHOOL</p>
-              <p class=""><?php echo $addressSchool; ?></p>
+              <p class=""><?php echo $userInformation['address_school'] ?></p>
               <p class="">09925665753</p>
             </div>
           </div>

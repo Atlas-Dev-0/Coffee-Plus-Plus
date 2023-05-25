@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
   $name = $surname . ", " . $firstname;
   //if middle name is not empty, add it
   if (!empty($middlename)) {
-    $name .= " " . $middlename;
+    $name .= ", " . $middlename;
   }
   $dob = $_POST['dob'];
   $address = $_POST['address'];

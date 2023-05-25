@@ -26,6 +26,20 @@
   flex-direction: row;
 }
 
+.dynamic-font-size {
+  font-size: 50px;
+  margin-top: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-right: -71px;
+  margin-bottom: 0px;
+  width: 548px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .fullname h1 {
   color: #333333;
   font-size: 50px;
@@ -36,14 +50,17 @@
   margin-right: -71px;
   margin-bottom: 0px;
   width: 548px;
+  white-space: normal; /* Allow text to wrap within the container */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .fullname p {
-  color: #fffddd;
+  color: #000000;
   margin-top: 0px;
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
-  font-weight: 200;
+  font-weight: 500;
   margin-left: 10px;
 }
 
@@ -101,11 +118,11 @@
   width: 791px;
 }
 .username p {
-  color: #fffddd;
+  color: #000000;
   margin-top: 0px;
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
-  font-weight: 200;
+  font-weight: 500;
   margin-left: 10px;
 }
 
@@ -123,11 +140,11 @@
 }
 
 .birthdate p {
-  color: #fffddd;
+  color: #000000;
   margin-top: 0px;
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
-  font-weight: 200;
+  font-weight: 500;
   margin-left: 10px;
 }
 

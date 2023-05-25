@@ -1,13 +1,24 @@
 <?php
 // Start the session
 session_start();
+
 // Check if user is logged in, if not, redirect to login page
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
   header("location: /scripts/login_module/login.php");
   exit;
 }
-?>
 
+// Check if the userInformation session variable is set
+if (isset($_SESSION['userInformation'])) {
+  // Retrieve the userInformation from the session
+  $userInformation = $_SESSION['userInformation'];
+  // Convert userInformation to JSON
+  $userInformationJSON = json_encode($userInformation);
+} else {
+  // Set userInformation to an empty array if not set
+  $userInformationJSON = '[]';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,6 +39,16 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
 <body>
   <div id="navbar"></div>
+
+  <script src="/scripts/FetchUserInformation/Store_UserInformation.js"></script>
+
+  <script>
+    // Parse the userInformation JSON string
+    var userInformation = <?php echo $userInformationJSON; ?>;
+    // Call a function in the new JavaScript file and pass the userInformation
+    initializeUserInformation(userInformation);
+  </script>
+
 
   <div class="container-fluid">
     <div class="row align-items-center">
