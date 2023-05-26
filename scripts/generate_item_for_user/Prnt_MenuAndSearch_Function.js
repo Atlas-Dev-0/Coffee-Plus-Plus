@@ -11,6 +11,7 @@ function Load_Prnt_MenuAndSearch_Function() {
 
         const productCard = document.createElement("div");
         productCard.classList.add("product", "card");
+
         productCard.id = product.id;
         productCard.setAttribute("data-name", product.name);
 

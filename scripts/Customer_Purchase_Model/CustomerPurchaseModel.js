@@ -1,22 +1,9 @@
 /**
  * Customer Purchase Model
  * --Model to store customer purchases
- * Description: This model will be implemented to provide the customers the ability to add their products to the cart list and purchase the products themselves.
+ * Description: This model will be implemented to provide the customers the ability to add their products to the card list and purchase the products themselves.
+ *
  */
-
-// Create a connection to the database
-const connection = require("mysql").createConnection({
-  host: "localhost",
-  user: "root",
-  password: "password",
-  database: "coffeeplusplusdb",
-});
-
-// Connect to the database
-connection.connect((err) => {
-  if (err) throw err;
-  console.log("Connected to the database");
-});
 
 function generateOrderID() {
   // Generate date string in format YYMMDD
@@ -47,131 +34,108 @@ function generateOrderID() {
   return orderID;
 }
 
-function addToCart(product, customer_id) {
-  const product_quantity = document.getElementById("product_quantity");
-  const quantity = product_quantity.value;
-
-  // Add product to cart
-  const addedProduct = {
-    id: product.id,
-    name: product.name,
-    price: product.price,
-    quantity: quantity,
-    image: product.image,
-  };
-
-  // Insert product into the database
-  const sql =
-    "INSERT INTO cart (customer_id, product_id, quantity, price) VALUES (?, ?, ?, ?)";
-  const values = [
-    customer_id,
-    addedProduct.id,
-    addedProduct.quantity,
-    addedProduct.price,
-  ];
-
-  connection.query(sql, values, (err, result) => {
-    if (err) throw err;
-    console.log("Product added to the cart");
-  });
-
-  // Log cart on console
-  console.log("Added product to cart: " + JSON.stringify(addedProduct));
+function clearCart() {
+  // Make an AJAX request to clear the cart items for the customer ID
+  fetch("/scripts/Customer_Purchase_Model/clear_cart_items.php", {
+    method: "POST",
+    body: JSON.stringify({ customerID: CustomerId }), // Replace <customerID> with the actual customer ID
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log("Cart cleared successfully");
+      // Call the displayCart() function to update the cart display
+      displayCart();
+    })
+    .catch((error) => {
+      console.error("Error clearing cart:", error);
+    });
 }
 
 function displayCart() {
-  // Get the cart container
+  console.log("Customer Id: " + CustomerId);
   const cartContainer = document.getElementById("product-container");
-
-  // Clear the container to avoid duplicates
   cartContainer.innerHTML = "";
 
-  // Fetch the cart items from the database
-  const sql = "SELECT * FROM cart";
-  connection.query(sql, (err, results) => {
-    if (err) throw err;
-
-    // If the cart is empty, display a message
-    if (results.length === 0) {
-      cartContainer.innerHTML = `<p class="empty_notif">Your cart is empty.</p>`;
-      return;
-    }
-
-    // Loop through the cart items
-    results.forEach((item) => {
-      // Create a new container for each item
-      const cartProduct = document.createElement("div");
-      cartProduct.classList.add("cart-product", "container");
-
-      // Create a container for the product image
-      const imageContainer = document.createElement("div");
-      imageContainer.classList.add("cart-image-container");
-
-      // Create an image element for the product
-      const image = document.createElement("img");
-      image.classList.add("cart-prod-img");
-      image.src = `/${item.image}`;
-      image.alt = item.name;
-
-      // Create a container for the product description
-      const descriptionContainer = document.createElement("div");
-      descriptionContainer.classList.add(
-        "cart-product-description",
-        "container"
-      );
-
-      // Create a heading for the product name
-      const name = document.createElement("h2");
-      name.textContent = item.name;
-
-      // Create a container for the quantity and price
-      const subDescription = document.createElement("div");
-      subDescription.classList.add("cart-sub-description", "container");
-
-      // Create a span for the quantity
-      const quantity = document.createElement("p");
-      quantity.classList.add("cart-product-quantity");
-      quantity.textContent = `Quantity: ${item.quantity}`;
-
-      // Extract the numeric value from the price string
-      const priceValue = parseFloat(item.price.replace(/[^\d.-]/g, ""));
-
-      // Calculate the total price by multiplying the quantity with the numeric price value
-      const totalOrderPrice = parseFloat(item.quantity) * priceValue;
-
-      // Create a span for the price
-      const price = document.createElement("p");
-      price.classList.add("cart-product-price");
-
-      // Handle invalid price or quantity
-      if (isNaN(totalOrderPrice)) {
-        price.textContent = "Invalid price or quantity";
-      } else {
-        price.textContent = `Total Price: ${totalOrderPrice}`;
+  // Make an AJAX request to retrieve the cart items from the PHP script
+  fetch("/scripts/Customer_Purchase_Model/fetch_cart_items.php")
+    .then((response) => response.json())
+    .then((cartItems) => {
+      if (!cartItems || cartItems.length === 0) {
+        cartContainer.innerHTML = `<p class="empty_notif">Your cart is empty.</p>`;
+        return;
       }
 
-      // Append the elements to their respective containers
-      subDescription.appendChild(quantity);
-      subDescription.appendChild(price);
-      descriptionContainer.appendChild(name);
-      descriptionContainer.appendChild(subDescription);
-      imageContainer.appendChild(image);
-      cartProduct.appendChild(imageContainer);
-      cartProduct.appendChild(descriptionContainer);
+      cartItems.forEach((item) => {
+        const cartProduct = document.createElement("div");
+        cartProduct.classList.add("cart-product", "container");
 
-      // Append the item container to the cart container
-      cartContainer.appendChild(cartProduct);
+        const imageContainer = document.createElement("div");
+        imageContainer.classList.add("cart-image-container");
+
+        const image = document.createElement("img");
+        image.classList.add("cart-prod-img");
+        image.src = `/${item.image}`;
+        image.alt = item.name;
+
+        const descriptionContainer = document.createElement("div");
+        descriptionContainer.classList.add(
+          "cart-product-description",
+          "container"
+        );
+
+        const name = document.createElement("h2");
+        name.textContent = item.name;
+
+        const subDescription = document.createElement("div");
+        subDescription.classList.add("cart-sub-description", "container");
+
+        const quantity = document.createElement("p");
+        quantity.classList.add("cart-product-quantity");
+        quantity.textContent = `Quantity: ${item.quantity}`;
+
+        const totalOrderPrice =
+          parseFloat(item.price) * parseFloat(item.quantity);
+
+        const price = document.createElement("p");
+        price.classList.add("cart-product-price");
+        price.textContent = `Total Price: ${totalOrderPrice}`;
+
+        if (isNaN(totalOrderPrice)) {
+          price.textContent = "Invalid price or quantity";
+        } else {
+          price.textContent = `Total Price: Php ${totalOrderPrice}`;
+        }
+
+        subDescription.appendChild(quantity);
+        subDescription.appendChild(price);
+        descriptionContainer.appendChild(name);
+        descriptionContainer.appendChild(subDescription);
+        imageContainer.appendChild(image);
+        cartProduct.appendChild(imageContainer);
+        cartProduct.appendChild(descriptionContainer);
+
+        cartContainer.appendChild(cartProduct);
+      });
+    })
+    .catch((error) => {
+      console.error("Error fetching cart items:", error);
+      cartContainer.innerHTML = `<p class="empty_notif">Error fetching cart items.</p>`;
     });
-  });
 }
 
 const UrlPageQueue = window.location.href;
 if (UrlPageQueue.includes("cart")) {
-  // Fetch customer ID from the other JavaScript file
-  const customer_id = globalUserInformation.customer_id;
-
-  // Display the updated cart
   displayCart();
-} else {
-  // ...your code for other pages
+}
+
+function updateAddress() {
+  var select = document.getElementById("addressPicker");
+  var selectedAddress = select.options[select.selectedIndex].text;
+
+  // Update the address in the desired location
+  var locationElement = document.querySelector(".location");
+  addressElement.innerHTML = selectedAddress;
 }

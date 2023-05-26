@@ -5,15 +5,25 @@
   flex-direction: row;
   padding: 20px;
   background-image: url("/Design Elements/UI/cart-order-item.jpg");
-  background-size: cover;
   border-radius: 30px;
   border: 1px solid #6e5344;
+  width: 669px;
 }
 
 .cart_bottom_section {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
+
+@media only screen and (max-width: 1000px) {
+  .cart_bottom_section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+}
+
 .cart-title-container {
   display: flex;
   justify-content: center;
@@ -60,15 +70,123 @@
 }
 
 .product-box {
-  max-width: 742px;
+  flex: 1;
 }
 
 .buy_section {
   background-image: url("/Design Elements/UI/cart-buy-menu00.jpg");
   background-size: cover;
-  width: 573px;
-  height: 397px;
+  min-width: 200px; /* Update the min-width to your desired value */
   border-radius: 20px;
   box-shadow: 5px 10px #552e19;
   border: 1px solid #6e5344;
+  flex: 0.8; /* Allow the buy_section to grow and take available space */
+  display: flex;
+  flex-direction: column; /* Align items vertically */
+  justify-content: space-between; /* Add spacing between items */
+  padding: 20px; /* Add padding for spacing */
+  height: 501px;
+}
+
+.title {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+#addressPicker {
+  background-color: transparent;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  margin-left: 6px;
+  height: 26px;
+  width: 362px;
+  font-size: 17px;
+  margin-top: 20px;
+  border-radius: 20px;
+  border: none;
+}
+
+.location {
+  display: flex;
+  flex-direction: column;
+}
+
+.location p {
+  text-align: left;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.total_items {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.location {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+}
+
+.total_items p {
+  text-align: left;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.total_items .subtotal {
+  border: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 20px;
+  margin-left: 20px;
+  background-color: transparent;
+}
+
+.subtotal_title {
+  font-weight: 700;
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+
+.subtotal {
+  height: 70px;
+  width: 490px;
+}
+
+.subtotaldisplay {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+.cart_buttons {
+  margin-top: 30px;
+  text-align: right;
+}
+
+#clear-cart-button {
+  font-weight: bold;
+  color: #552e19;
+  background-color: beige;
+  height: 30px;
+  width: 90px;
+  border-radius: 20px;
+}
+
+#buy-cart {
+  font-weight: bold;
+  color: #ffffff;
+  background-color: rgb(3, 118, 29);
+  height: 30px;
+  width: 90px;
+  border-radius: 20px;
 }

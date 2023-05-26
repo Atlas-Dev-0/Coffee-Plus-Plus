@@ -19,6 +19,7 @@ if (isset($_SESSION['userInformation'])) {
   $userInformationJSON = '[]';
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,17 +39,16 @@ if (isset($_SESSION['userInformation'])) {
 </head>
 
 <body>
-  <div id="navbar"></div>
-
-  <script src="/scripts/FetchUserInformation/Store_UserInformation.js"></script>
-
   <script>
-    // Parse the userInformation JSON string
-    var userInformation = <?php echo $userInformationJSON; ?>;
-    // Call a function in the new JavaScript file and pass the userInformation
-    initializeUserInformation(userInformation);
+    // Define a global variable and assign the userInformation JSON to it
+    var globalUserInformation = <?php echo $userInformationJSON; ?>;
+
+    // Output user information in the console
+    console.log("Customer ID: " + globalUserInformation.customer_id);
   </script>
 
+
+  <div id="navbar"></div>
 
   <div class="container-fluid">
     <div class="row align-items-center">
@@ -99,7 +99,6 @@ if (isset($_SESSION['userInformation'])) {
     <div class="popup-inner pop-up_window_size" style="width: 900px !important;
   height: 500px !important; border-radius: 20px"></div>
   </div>
-
 
   <!--Bootstrap JS-->
   <script src=" /Bootstrap/js/bootstrap.js">
