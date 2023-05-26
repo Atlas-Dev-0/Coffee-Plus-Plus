@@ -57,7 +57,10 @@ function clearCart() {
 function displayCart() {
   console.log("Customer Id: " + CustomerId);
   const cartContainer = document.getElementById("product-container");
+  const totalItemsElement = document.querySelector(".total_items"); // Select the total_items element
+
   cartContainer.innerHTML = "";
+  let totalItems = 0; // Variable to keep track of the total items
 
   // Make an AJAX request to retrieve the cart items from the PHP script
   fetch("/scripts/Customer_Purchase_Model/fetch_cart_items.php")
@@ -118,7 +121,9 @@ function displayCart() {
         cartProduct.appendChild(descriptionContainer);
 
         cartContainer.appendChild(cartProduct);
+        totalItems += parseInt(item.quantity); // Increment the total items by the quantity of each item
       });
+      totalItemsElement.textContent = totalItems.toString(); // Set the total items in the HTML element
     })
     .catch((error) => {
       console.error("Error fetching cart items:", error);

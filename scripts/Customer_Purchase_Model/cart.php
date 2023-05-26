@@ -75,9 +75,9 @@ $_SESSION['globalUserInformation'] = $userInformation;
                     </select>
                 </div>
 
-                <div class="total_items">
+                <div class="total_items_container">
                     <p>Total Items: </p>
-                    <p class="total_items"> </p>
+                    <p class="total_items"></p>
                 </div>
 
 

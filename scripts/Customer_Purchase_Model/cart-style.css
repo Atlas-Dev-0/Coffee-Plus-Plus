@@ -120,7 +120,7 @@
   margin-top: 20px;
   margin-left: 20px;
 }
-.total_items {
+.total_items_container {
   display: flex;
   flex-direction: row;
   margin-top: 30px;
@@ -133,7 +133,7 @@
   flex-direction: row;
 }
 
-.total_items p {
+.total_items_container p {
   text-align: left;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
@@ -142,7 +142,7 @@
   margin-left: 20px;
 }
 
-.total_items .subtotal {
+.total_items_container .subtotal {
   border: none;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
@@ -160,7 +160,7 @@
 
 .subtotal {
   height: 70px;
-  width: 490px;
+  width: 100%; /* Set the width to 100% to fill the parent container */
 }
 
 .subtotaldisplay {
