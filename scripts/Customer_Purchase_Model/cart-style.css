@@ -88,10 +88,11 @@
   height: 501px;
 }
 
-.title {
+.title h2 {
   margin-top: 20px;
   text-align: center;
   font-weight: bold;
+  font-size: 60px;
 }
 
 #addressPicker {
@@ -120,29 +121,17 @@
   margin-top: 20px;
   margin-left: 20px;
 }
-.total_items_container {
-  display: flex;
-  flex-direction: row;
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
 .location {
   margin-top: 30px;
   display: flex;
   flex-direction: row;
 }
 
-.total_items_container p {
-  text-align: left;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
-  font-size: 20px;
-  margin-top: 20px;
-  margin-left: 20px;
-}
-
-.total_items_container .subtotal {
+.total_items_container {
+  display: flex;
+  flex-direction: row;
+  align-content: flex-end;
+  flex-wrap: wrap;
   border: none;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
@@ -150,6 +139,19 @@
   margin-top: 20px;
   margin-left: 20px;
   background-color: transparent;
+  margin-bottom: 30px;
+}
+
+.total_items_container p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.total_items_container h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
 }
 
 .subtotal_title {
@@ -189,4 +191,11 @@
   height: 30px;
   width: 90px;
   border-radius: 20px;
+}
+
+.subtotal {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
 }

@@ -57,17 +57,19 @@ function clearCart() {
 function displayCart() {
   console.log("Customer Id: " + CustomerId);
   const cartContainer = document.getElementById("product-container");
-  const totalItemsElement = document.querySelector(".total_items"); // Select the total_items element
+  const totalItemsElement = document.querySelector(".total_items");
+  const subtotalInput = document.querySelector(".subtotal"); // Select the subtotal input element
 
   cartContainer.innerHTML = "";
-  let totalItems = 0; // Variable to keep track of the total items
+  let totalItems = 0;
+  let totalPrice = 0; // Variable to keep track of the total price
 
-  // Make an AJAX request to retrieve the cart items from the PHP script
   fetch("/scripts/Customer_Purchase_Model/fetch_cart_items.php")
     .then((response) => response.json())
     .then((cartItems) => {
       if (!cartItems || cartItems.length === 0) {
         cartContainer.innerHTML = `<p class="empty_notif">Your cart is empty.</p>`;
+        subtotalInput.value = ""; // Set the subtotal input value to empty if the cart is empty
         return;
       }
 
@@ -121,16 +123,20 @@ function displayCart() {
         cartProduct.appendChild(descriptionContainer);
 
         cartContainer.appendChild(cartProduct);
-        totalItems += parseInt(item.quantity); // Increment the total items by the quantity of each item
+
+        totalItems += parseInt(item.quantity);
+        totalPrice += totalOrderPrice; // Add the total price of each item to the totalPrice variable
       });
-      totalItemsElement.textContent = totalItems.toString(); // Set the total items in the HTML element
+
+      totalItemsElement.textContent =
+        "Total Items: " + totalItems.toString() + "x";
+      subtotalInput.value = "Php " + totalPrice.toFixed(2); // Set the subtotal input value with "Php" prefix and 2 decimal places
     })
     .catch((error) => {
       console.error("Error fetching cart items:", error);
       cartContainer.innerHTML = `<p class="empty_notif">Error fetching cart items.</p>`;
     });
 }
-
 const UrlPageQueue = window.location.href;
 if (UrlPageQueue.includes("cart")) {
   displayCart();

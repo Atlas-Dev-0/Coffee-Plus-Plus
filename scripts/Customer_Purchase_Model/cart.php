@@ -76,14 +76,13 @@ $_SESSION['globalUserInformation'] = $userInformation;
                 </div>
 
                 <div class="total_items_container">
-                    <p>Total Items: </p>
-                    <p class="total_items"></p>
+                    <h2 class="total_items"></h2>
                 </div>
 
 
                 <div class="subtotaldisplay">
                     <p class="subtotal_title">SubTotal: </p>
-                    <input type="number" class="subtotal" readonly>
+                    <input type="text" class="subtotal" readonly>
                 </div>
                 <div class="cart_buttons container">
                     <button id="buy-cart" onclick="">Buy</button>
