@@ -37,12 +37,18 @@ $_SESSION['globalUserInformation'] = $userInformation;
     <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="/scripts/MainCSSPage/main_page_style.css">
     <link rel="stylesheet" href="/scripts/Customer_Purchase_Model/cart-style.css">
+    <style>
+        .modal-backdrop {
+            display: none !important;
+        }
+    </style>
 </head>
 
 <body>
     <!-- Navbar Included Here -->
     <div id="navbar"></div>
     <script src="/scripts/navbar/nav.js"></script>
+
 
 
     <!-- This container will contain the list of products inside the cart -->
@@ -100,6 +106,55 @@ $_SESSION['globalUserInformation'] = $userInformation;
 
     <!-- Bootstrap JavaScript -->
     <script src="/Bootstrap/js/bootstrap.js"></script>
+
+
+
+
+    <div class="modal fade" id="purchaseModal" tabindex="-1" aria-labelledby="purchaseModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="purchaseModalLabel">Purchase Completed</h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Your purchase has been successfully completed!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var purchaseModal = document.getElementById("purchaseModal");
+            var okButton = purchaseModal.querySelector(".btn-primary");
+
+            okButton.addEventListener("click", function() {
+                closeModal();
+            });
+
+            function closeModal() {
+                purchaseModal.style.display = "none";
+                document.body.classList.remove("modal-open");
+                document.body.style.overflow = 'auto';
+                var backdrop = document.getElementsByClassName("modal-backdrop");
+                if (backdrop.length > 0) {
+                    backdrop[0].parentNode.removeChild(backdrop[0]);
+                }
+            }
+
+            purchaseModal.addEventListener("hidden.bs.modal", function() {
+                setTimeout(function() {
+                    closeModal();
+                }, 500);
+            });
+        });
+    </script>
+
+
 
 </body>
 

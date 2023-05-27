@@ -205,3 +205,19 @@
   font-weight: bold;
   font-family: "Montserrat", sans-serif;
 }
+
+/* HEADER NAVBAR */
+.navbar-brand {
+  font-weight: bold;
+}
+
+.navbar {
+  width: 100%;
+}
+
+.nav-link {
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: bold;
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+}

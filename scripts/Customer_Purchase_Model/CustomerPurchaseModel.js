@@ -158,8 +158,6 @@ function updateAddress(event) {
   locationElement.innerHTML = selectedAddress;
 }
 
-// On-going process of adding add_to_orders function
-
 document.getElementById("buy-cart").addEventListener("click", add_to_orders);
 
 // Function to add the order
@@ -195,6 +193,11 @@ function add_to_orders() {
         .then(() => {
           console.log("Cart cleared successfully");
           displayCart(); // Call the displayCart() function after the cart is cleared
+          // Show the purchase modal using Bootstrap's modal API
+          var purchaseModal = new bootstrap.Modal(
+            document.getElementById("purchaseModal")
+          );
+          purchaseModal.show();
         })
         .catch((error) => {
           console.error("Error clearing cart:", error);
@@ -218,5 +221,3 @@ function add_to_orders() {
   });
   xhr.send(requestData);
 }
-
-// -------------------------------------------------------------------
