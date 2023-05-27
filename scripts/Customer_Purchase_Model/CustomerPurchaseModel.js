@@ -72,15 +72,12 @@ function displayCart() {
         quantity.classList.add("cart-product-quantity");
         quantity.textContent = `Quantity: ${item.quantity}`;
 
-        const totalOrderPrice =
-          parseFloat(item.price) * parseFloat(item.quantity);
-
         const price = document.createElement("p");
         price.classList.add("cart-product-price");
         if (isNaN(item.price)) {
           price.textContent = "Invalid price or quantity";
         } else {
-          price.textContent = `Total Price: Php ` + item.price;
+          price.textContent = `Total Price: Php ${item.price}`; // Display the item price as the total price for each item
         }
 
         subDescription.appendChild(quantity);
@@ -94,7 +91,7 @@ function displayCart() {
         cartContainer.appendChild(cartProduct);
 
         totalItems += parseInt(item.quantity);
-        totalPrice += totalOrderPrice; // Add the total price of each item to the totalPrice variable
+        totalPrice += parseFloat(item.price); // Add the item price to the totalPrice variable
       });
 
       totalItemsElement.textContent =
@@ -136,3 +133,34 @@ function updateAddress(event) {
   var locationElement = document.querySelector(".location");
   locationElement.innerHTML = selectedAddress;
 }
+
+// On-going process of adding add_to_orders function
+
+function add_to_orders() {
+  const addressElement = document.querySelector(".location");
+  const address = addressElement.innerHTML;
+
+  fetch("/scripts/Customer_Purchase_Model/add_to_orders.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      address: address,
+      customerId: CustomerId,
+    }),
+  })
+    .then((response) => response.text())
+    .then((result) => {
+      console.log(result); // Handle the result as per your requirements
+    })
+    .catch((error) => {
+      console.error("Error adding to orders:", error);
+    });
+}
+
+// Event listener for the Buy button click event
+const buyButton = document.getElementById("buy-cart");
+buyButton.addEventListener("click", add_to_orders);
+
+// -------------------------------------------------------------------
