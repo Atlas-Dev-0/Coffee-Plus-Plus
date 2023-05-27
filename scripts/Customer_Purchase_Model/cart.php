@@ -72,7 +72,7 @@ $_SESSION['globalUserInformation'] = $userInformation;
                             <option value="address4">School: <?php echo $userInformation['address_school'] ?></option>
                         </select>
                 </div>
-
+                .
                 <div class="total_items_container">
                     <h2 class="total_items"></h2>
                 </div>

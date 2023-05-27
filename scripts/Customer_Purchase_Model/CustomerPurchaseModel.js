@@ -77,10 +77,10 @@ function displayCart() {
 
         const price = document.createElement("p");
         price.classList.add("cart-product-price");
-        if (isNaN(totalOrderPrice)) {
+        if (isNaN(item.price)) {
           price.textContent = "Invalid price or quantity";
         } else {
-          price.textContent = `Total Price: Php ${totalOrderPrice.toFixed(2)}`;
+          price.textContent = `Total Price: Php ` + item.price;
         }
 
         subDescription.appendChild(quantity);
@@ -113,19 +113,26 @@ if (UrlPageQueue.includes("cart")) {
   displayCart();
 }
 
-// Update the address in the desired location
-function updateAddress(event) {
-  var selectedAddress = event.target.options[event.target.selectedIndex].text;
-  var locationElement = document.querySelector(".location");
-  locationElement.innerHTML = selectedAddress;
-
-  // Perform any additional actions related to the address update here
-  // For example, you can trigger an AJAX request to update the address in the backend or perform any other necessary operations.
-}
-
-// Event delegation to handle the change event of the dropdown
+// Event listener for the dropdown menu change event
 document.addEventListener("change", function (event) {
-  if (event.target && event.target.id === "addressPicker") {
-    updateAddress(event);
+  if (event.target && event.target.id === "addressDropdown") {
+    // Clear the selected option in the dropdown menu
+    event.target.selectedIndex = -1;
   }
 });
+
+// Update the address in the desired location
+function updateAddress(event) {
+  var selectedAddress;
+
+  // Check if the address picker was used
+  if (event.target && event.target.id === "addressPicker") {
+    selectedAddress = event.target.options[event.target.selectedIndex].text;
+  } else if (event.target && event.target.id === "addressDropdown") {
+    // Check if the dropdown menu was used
+    selectedAddress = event.target.value;
+  }
+
+  var locationElement = document.querySelector(".location");
+  locationElement.innerHTML = selectedAddress;
+}

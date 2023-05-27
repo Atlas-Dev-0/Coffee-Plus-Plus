@@ -19,7 +19,6 @@ function HighlightPageFunction() {
   // Get the navbar links
   const homeLink = document.getElementById("navbar-home");
   const OdersLink = document.getElementById("navbar-orders");
-  const contactLink = document.getElementById("navbar-contact");
 
   //Add the "active" class in home page at the first load time of page
   homeLink.classList.add("active");
@@ -32,10 +31,6 @@ function HighlightPageFunction() {
     OdersLink.classList.add("active");
     homeLink.classList.remove("active");
     console.log("%cActive Page: About.php", "color:green");
-  } else if (currentUrl.includes("contactpage.php")) {
-    contactLink.classList.add("active");
-    homeLink.classList.remove("active");
-    console.log("%cActive Page: ContactPage.php", "color:green");
   }
 
   if (currentUrl.includes("userdashboard.php")) {
