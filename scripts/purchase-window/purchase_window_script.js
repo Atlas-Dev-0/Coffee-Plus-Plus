@@ -76,7 +76,7 @@ function openPopup(product) {
 
     const productToAdd = {
       customer_id: globalUserInformation.customer_id,
-      id: product.id,
+      product_id: product.product_id,
       name: product.name,
       price: totalPrice,
       quantity: quantity,
@@ -122,30 +122,3 @@ function addToCart(product) {
   // Send the request
   xhr.send(data);
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-  // Event listener to handle clicks within the purchase container
-  document.addEventListener("click", function (event) {
-    const target = event.target;
-    if (target.classList.contains("buybutton")) {
-      const productElement = target.closest(".product");
-      const productId = productElement.id;
-      const productName = productElement.getAttribute("data-name");
-      const productImage = productElement
-        .querySelector(".product-image")
-        .getAttribute("src");
-      const productDescription =
-        productElement.querySelector(".description").textContent;
-      const productPrice =
-        productElement.querySelector(".product-price").textContent;
-      const product = {
-        id: productId,
-        name: productName,
-        image: productImage,
-        description: productDescription,
-        price: productPrice,
-      };
-      openPopup(product);
-    }
-  });
-});

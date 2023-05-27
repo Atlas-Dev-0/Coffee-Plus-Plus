@@ -1,4 +1,8 @@
 <?php
+
+// Clear Cart Items Script
+// This will clear the items inside the cart if the user chooses to do so
+
 // Database credentials
 $servername = "localhost";
 $username = "root";
@@ -8,7 +12,7 @@ $dbname = "coffeeplusplusdb";
 // Get the customer ID from the request body
 $requestPayload = file_get_contents('php://input');
 $data = json_decode($requestPayload, true);
-$customerID = $data['customerID'];
+$customerID = $data['customerId']; // Update the variable name to 'customerId'
 
 // Create a connection to the database
 $conn = new mysqli($servername, $username, $password, $dbname);

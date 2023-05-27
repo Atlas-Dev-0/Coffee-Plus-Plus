@@ -1,61 +1,77 @@
 /**
  * Customer Purchase Model
  * --Model to store customer purchases
- * Description: This model will be implemented to provide the customers the ability to add their products to the card list and purchase the products themselves.
- *
+ * Description: This model will be implemented to provide the customers the ability to add their products to the cart list and purchase the products themselves.
  */
 
-function generateOrderID() {
-  // Generate date string in format YYMMDD
-  const date = new Date();
-  const dateString = `${date.getFullYear().toString().slice(-2)}${(
-    date.getMonth() + 1
-  )
-    .toString()
-    .padStart(2, "0")}${date.getDate().toString().padStart(2, "0")}`;
+function transferItemsToOrders(cartItems) {
+  // Filter out any cart items with missing or invalid data
+  const validItems = cartItems.filter(
+    (item) =>
+      item &&
+      item.customer_id &&
+      item.product_id &&
+      item.name &&
+      item.price &&
+      item.quantity &&
+      item.image &&
+      item.address &&
+      item.created_at
+  );
 
-  // Generate random 4-letter string
-  const randomString = Math.random().toString(36).substring(2, 6).toUpperCase();
-
-  // Get current number of orders placed on this date and increment
-  let orderNumber = localStorage.getItem(dateString);
-  if (!orderNumber) {
-    orderNumber = 1;
-  } else {
-    orderNumber = parseInt(orderNumber) + 1;
+  if (validItems.length === 0) {
+    console.error("No valid items found in the cart.");
+    return;
   }
-  localStorage.setItem(dateString, orderNumber);
 
-  // Combine parts to create order ID
-  const orderID = `${dateString}-${randomString}-${orderNumber
-    .toString()
-    .padStart(3, "0")}`;
-
-  return orderID;
-}
-
-function clearCart() {
-  // Make an AJAX request to clear the cart items for the customer ID
-  fetch("/scripts/Customer_Purchase_Model/clear_cart_items.php", {
+  // Make an AJAX request to transfer the valid cart items to the orders data table
+  fetch("/scripts/Customer_Purchase_Model/transfer_to_orders.php", {
     method: "POST",
-    body: JSON.stringify({ customerID: CustomerId }), // Replace <customerID> with the actual customer ID
+    body: JSON.stringify({ cartItems: validItems }),
     headers: {
       "Content-Type": "application/json",
     },
   })
     .then((response) => response.json())
     .then((result) => {
-      console.log("Cart cleared successfully");
-      // Call the displayCart() function to update the cart display
-      displayCart();
+      console.log("Items transferred to orders successfully");
+      // Call the clearCart() function to clear the cart items
+      clearCart();
     })
     .catch((error) => {
-      console.error("Error clearing cart:", error);
+      console.error("Error transferring items to orders:", error);
     });
 }
 
+function clearCart() {
+  var xhr = new XMLHttpRequest();
+
+  xhr.open(
+    "POST",
+    "/scripts/Customer_Purchase_Model/clear_cart_items.php",
+    true
+  );
+  xhr.setRequestHeader("Content-Type", "application/json");
+
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      console.log("Cart cleared successfully");
+      console.log("Customer Id in Query: " + CustomerId);
+      displayCart(); // Call the displayCart() function to update the cart display
+    } else {
+      console.error("Error clearing cart:", xhr.statusText);
+    }
+  };
+
+  xhr.onerror = function () {
+    console.error("Error clearing cart: Request failed");
+  };
+
+  var requestData = JSON.stringify({ customerId: CustomerId });
+  xhr.send(requestData);
+}
+
 function displayCart() {
-  console.log("Customer Id: " + CustomerId);
   const cartContainer = document.getElementById("product-container");
   const totalItemsElement = document.querySelector(".total_items");
   const subtotalInput = document.querySelector(".subtotal"); // Select the subtotal input element
@@ -106,12 +122,10 @@ function displayCart() {
 
         const price = document.createElement("p");
         price.classList.add("cart-product-price");
-        price.textContent = `Total Price: ${totalOrderPrice}`;
-
         if (isNaN(totalOrderPrice)) {
           price.textContent = "Invalid price or quantity";
         } else {
-          price.textContent = `Total Price: Php ${totalOrderPrice}`;
+          price.textContent = `Total Price: Php ${totalOrderPrice.toFixed(2)}`;
         }
 
         subDescription.appendChild(quantity);
@@ -139,8 +153,30 @@ function displayCart() {
 }
 const UrlPageQueue = window.location.href;
 if (UrlPageQueue.includes("cart")) {
+  console.log("Customer ID present: " + CustomerId); // Update the variable name to 'CustomerId'
   displayCart();
 }
+
+document.getElementById("buy-cart").addEventListener("click", function () {
+  // Fetch the cart items from the server
+  console.log("Buy Button Pressed");
+
+  fetch("/scripts/Customer_Purchase_Model/fetch_cart_items.php")
+    .then((response) => response.json())
+    .then((cartItems) => {
+      if (!cartItems || cartItems.length === 0) {
+        console.log("Cart is empty");
+        return;
+      }
+
+      console.log("Transferring Items");
+      // Transfer the cart items to the orders data table
+      transferItemsToOrders(cartItems);
+    })
+    .catch((error) => {
+      console.log("Error fetching cart items:", error);
+    });
+});
 
 function updateAddress() {
   var select = document.getElementById("addressPicker");
@@ -148,5 +184,5 @@ function updateAddress() {
 
   // Update the address in the desired location
   var locationElement = document.querySelector(".location");
-  addressElement.innerHTML = selectedAddress;
+  locationElement.innerHTML = selectedAddress; // Update the variable name to 'locationElement'
 }

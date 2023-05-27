@@ -22,7 +22,6 @@ if (isset($_SESSION['userInformation'])) {
 
 // Set the global session variable for userInformation
 $_SESSION['globalUserInformation'] = $userInformation;
-
 ?>
 
 <!DOCTYPE html>
@@ -33,64 +32,66 @@ $_SESSION['globalUserInformation'] = $userInformation;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COFFEE PLUS-PLUS</title>
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/Bootstrap/css/bootstrap.css">
-    <!---CSS Stylesheet-->
+    <!-- CSS Stylesheet -->
     <link rel="stylesheet" href="/scripts/MainCSSPage/main_page_style.css">
     <link rel="stylesheet" href="/scripts/Customer_Purchase_Model/cart-style.css">
 </head>
 
 <body>
-
-    <!--Navbar Included Here-->
+    <!-- Navbar Included Here -->
     <div id="navbar"></div>
     <script src="/scripts/navbar/nav.js"></script>
 
+
+
+
     <!-- This container will contain the list of products inside the cart -->
     <div class="cart_page_container container">
-        <div class="cart-title-container container ">
+        <div class="cart-title-container container">
             <h1 class="cart-title" style="margin-right: 20px">Order</h1>
         </div>
 
-        <div class="cart_bottom_section container ">
-
-            <div class="product-box container " id="product-container">
+        <div class="cart_bottom_section container">
+            <div class="product-box container" id="product-container">
                 <!-- Include here the added products in cart -->
             </div>
 
-            <div class="buy_section ">
+            <div class="buy_section">
                 <div class="title">
                     <h2>Order Summary</h2>
                 </div>
                 <div class="location">
                     <p>Location:</p>
-                    <select id="addressPicker" onchange="updateAddress()">
-                        <option value="address1">
-                            Home: <?php echo $userInformation['address'] ?>
-                        </option>
-                        <option value="address2">Work: <?php echo $userInformation['address_work'] ?></option>
-                        <option value="address3">Friend: <?php echo $userInformation['address_friend'] ?></option>
-                        <option value="address4">School: <?php echo $userInformation['address_school'] ?></option>
-                    </select>
+                    <form method="POST" action="">
+                        <select name="addressPicker" id="addressPicker" onchange="updateAddress()">
+                            <option value="address1">Home: <?php echo $userInformation['address'] ?></option>
+                            <option value="address2">Work: <?php echo $userInformation['address_work'] ?></option>
+                            <option value="address3">Friend: <?php echo $userInformation['address_friend'] ?></option>
+                            <option value="address4">School: <?php echo $userInformation['address_school'] ?></option>
+                        </select>
                 </div>
 
                 <div class="total_items_container">
                     <h2 class="total_items"></h2>
                 </div>
 
-
                 <div class="subtotaldisplay">
                     <p class="subtotal_title">SubTotal: </p>
                     <input type="text" class="subtotal" readonly>
                 </div>
                 <div class="cart_buttons container">
-                    <button id="buy-cart" onclick="">Buy</button>
+                    <button type="submit" id="buy-cart" name="buy-cart">Buy</button>
                     <button id="clear-cart-button" onclick="clearCart()">Clear Cart</button>
                 </div>
             </div>
+            </form>
         </div>
     </div>
+
+
+
 
     <script>
         // Define a global variable and assign the userInformation JSON to it
@@ -103,6 +104,7 @@ $_SESSION['globalUserInformation'] = $userInformation;
 
     <!-- Bootstrap JavaScript -->
     <script src="/Bootstrap/js/bootstrap.js"></script>
+
 </body>
 
 </html>

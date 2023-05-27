@@ -12,7 +12,6 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-// Execute SQL query to fetch data
 $sql = "SELECT * FROM coffee_product_catalog";
 $result = $conn->query($sql);
 

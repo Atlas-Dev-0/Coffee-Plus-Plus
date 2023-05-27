@@ -13,26 +13,41 @@ if ($conn->connect_error) {
 }
 
 // Function to add the product to the cart
+// Function to add the product to the cart
 function addToCart($product)
 {
     global $conn;
 
-    // Prepare the SQL statement
-    $stmt = $conn->prepare("INSERT INTO cart (customer_id, product_id, name, price, quantity, image, created_at) VALUES (?, ?, ?, ?, ?, ?, NOW())");
+    echo "Product ID: " . $product['product_id'] . PHP_EOL;
+    echo "Name: " . $product['name'] . PHP_EOL;
+    echo "Price: " . $product['price'] . PHP_EOL;
+    echo "Quantity: " . $product['quantity'] . PHP_EOL;
+    echo "Image: " . $product['image'] . PHP_EOL;
 
-    // Bind the parameters
-    $stmt->bind_param("iisdis", $product['customer_id'], $product['id'], $product['name'], $product['price'], $product['quantity'], $product['image']);
-
-    // Execute the statement
-    if ($stmt->execute()) {
-        echo "Product added to cart successfully.";
-    } else {
-        echo "Error adding product to cart: " . $stmt->error;
+    // Check if the product ID is empty or null
+    if (empty($product['product_id'])) {
+        echo "Invalid product ID.";
+        echo $product['product_id'];
+        return;
     }
 
-    // Close the statement
-    $stmt->close();
+    try {
+        // Prepare the SQL statement
+        $stmt = $conn->prepare("INSERT INTO cart (customer_id, product_id, name, price, quantity, image, created_at) VALUES (?, ?, ?, ?, ?, ?, NOW())");
+
+        // Bind the parameters
+        $stmt->bind_param("iisdis", $product['customer_id'], $product['product_id'], $product['name'], $product['price'], $product['quantity'], $product['image']);
+
+        // Execute the statement
+        $stmt->execute();
+
+        // Close the statement
+        $stmt->close();
+    } catch (mysqli_sql_exception $e) {
+        echo "Error adding product to cart: " . $e->getMessage();
+    }
 }
+
 
 // Retrieve the product data from the request body
 $productToAdd = json_decode(file_get_contents('php://input'), true);

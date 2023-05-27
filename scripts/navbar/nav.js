@@ -18,7 +18,7 @@ function HighlightPageFunction() {
 
   // Get the navbar links
   const homeLink = document.getElementById("navbar-home");
-  const aboutLink = document.getElementById("navbar-about");
+  const OdersLink = document.getElementById("navbar-orders");
   const contactLink = document.getElementById("navbar-contact");
 
   //Add the "active" class in home page at the first load time of page
@@ -28,20 +28,16 @@ function HighlightPageFunction() {
   if (currentUrl.includes("index.php")) {
     homeLink.classList.add("active");
     console.log("%cActive Page: Index.php", "color:green");
-  } else if (currentUrl.includes("aboutpage.php")) {
-    aboutLink.classList.add("active");
+  } else if (currentUrl.includes("OrderPage.php")) {
+    OdersLink.classList.add("active");
     homeLink.classList.remove("active");
     console.log("%cActive Page: About.php", "color:green");
   } else if (currentUrl.includes("contactpage.php")) {
     contactLink.classList.add("active");
     homeLink.classList.remove("active");
     console.log("%cActive Page: ContactPage.php", "color:green");
-  } else if (currentUrl.includes("cart.php")) {
-    homeLink.classList.remove("active");
-    console.log("%cActive Page: cart.php", "color:green");
   }
 
-  // Change the user logo when the user picked the dashboard page
   if (currentUrl.includes("userdashboard.php")) {
     const IconSrc = document.querySelector(".User_Logo");
     IconSrc.src = "/Design Elements/icons/person-circle-selected.svg";
@@ -49,5 +45,15 @@ function HighlightPageFunction() {
   } else {
     const IconSrc = document.querySelector(".User_Logo");
     IconSrc.src = "/Design Elements/icons/person-circle.svg";
+  }
+
+  if (currentUrl.includes("cart.php")) {
+    const BagIconSrc = document.querySelector(".cart_bag");
+    BagIconSrc.src = "/Design Elements/icons/bag_picked.svg";
+    console.log("%cActive Page: cart.php", "color:green");
+    homeLink.classList.remove("active");
+  } else {
+    const BagIconSrc = document.querySelector(".cart_bag");
+    BagIconSrc.src = "/Design Elements/icons/bag.svg";
   }
 }
