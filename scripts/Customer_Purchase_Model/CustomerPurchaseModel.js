@@ -1,46 +1,57 @@
 function clearCart() {
-  var xhr = new XMLHttpRequest();
+  return new Promise((resolve, reject) => {
+    var xhr = new XMLHttpRequest();
 
+    xhr.open(
+      "POST",
+      "/scripts/Customer_Purchase_Model/clear_cart_items.php",
+      true
+    );
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onload = function () {
+      if (xhr.status === 200) {
+        console.log("Cart cleared successfully");
+        console.log("Customer Id in Query: " + CustomerId);
+        resolve(); // Resolve the promise when the cart is cleared
+      } else {
+        reject("Error clearing cart: " + xhr.statusText);
+      }
+    };
+
+    xhr.onerror = function () {
+      reject("Error clearing cart: Request failed");
+    };
+
+    var requestData = JSON.stringify({ customerId: CustomerId });
+    xhr.send(requestData);
+  });
+}
+
+function displayCart() {
+  const cartContainer = document.getElementById("product-container");
+  const totalItemsElement = document.querySelector(".total_items");
+  const subtotalInput = document.querySelector(".subtotal");
+
+  cartContainer.innerHTML = "";
+  let totalItems = 0;
+  let totalPrice = 0;
+
+  var xhr = new XMLHttpRequest();
   xhr.open(
-    "POST",
-    "/scripts/Customer_Purchase_Model/clear_cart_items.php",
+    "GET",
+    "/scripts/Customer_Purchase_Model/fetch_cart_items.php",
     true
   );
   xhr.setRequestHeader("Content-Type", "application/json");
 
   xhr.onload = function () {
     if (xhr.status === 200) {
-      console.log("Cart cleared successfully");
-      console.log("Customer Id in Query: " + CustomerId);
-      displayCart(); // Call the displayCart() function to update the cart display
-    } else {
-      console.error("Error clearing cart:", xhr.statusText);
-    }
-  };
+      var cartItems = JSON.parse(xhr.responseText);
 
-  xhr.onerror = function () {
-    console.error("Error clearing cart: Request failed");
-  };
-
-  var requestData = JSON.stringify({ customerId: CustomerId });
-  xhr.send(requestData);
-}
-
-function displayCart() {
-  const cartContainer = document.getElementById("product-container");
-  const totalItemsElement = document.querySelector(".total_items");
-  const subtotalInput = document.querySelector(".subtotal"); // Select the subtotal input element
-
-  cartContainer.innerHTML = "";
-  let totalItems = 0;
-  let totalPrice = 0; // Variable to keep track of the total price
-
-  fetch("/scripts/Customer_Purchase_Model/fetch_cart_items.php")
-    .then((response) => response.json())
-    .then((cartItems) => {
       if (!cartItems || cartItems.length === 0) {
         cartContainer.innerHTML = `<p class="empty_notif">Your cart is empty.</p>`;
-        subtotalInput.value = ""; // Set the subtotal input value to empty if the cart is empty
+        subtotalInput.value = "";
         return;
       }
 
@@ -77,7 +88,7 @@ function displayCart() {
         if (isNaN(item.price)) {
           price.textContent = "Invalid price or quantity";
         } else {
-          price.textContent = `Total Price: Php ${item.price}`; // Display the item price as the total price for each item
+          price.textContent = `Total Price: Php ${item.price}`;
         }
 
         subDescription.appendChild(quantity);
@@ -91,17 +102,24 @@ function displayCart() {
         cartContainer.appendChild(cartProduct);
 
         totalItems += parseInt(item.quantity);
-        totalPrice += parseFloat(item.price); // Add the item price to the totalPrice variable
+        totalPrice += parseFloat(item.price);
       });
 
       totalItemsElement.textContent =
         "Total Items: " + totalItems.toString() + "x";
-      subtotalInput.value = "Php " + totalPrice.toFixed(2); // Set the subtotal input value with "Php" prefix and 2 decimal places
-    })
-    .catch((error) => {
-      console.error("Error fetching cart items:", error);
+      subtotalInput.value = "Php " + totalPrice.toFixed(2);
+    } else {
+      console.error("Error fetching cart items:", xhr.statusText);
       cartContainer.innerHTML = `<p class="empty_notif">Error fetching cart items.</p>`;
-    });
+    }
+  };
+
+  xhr.onerror = function () {
+    console.error("Error fetching cart items: Request failed");
+    cartContainer.innerHTML = `<p class="empty_notif">Error fetching cart items.</p>`;
+  };
+
+  xhr.send();
 }
 
 const UrlPageQueue = window.location.href;
@@ -136,31 +154,64 @@ function updateAddress(event) {
 
 // On-going process of adding add_to_orders function
 
+document.getElementById("buy-cart").addEventListener("click", add_to_orders);
+
+// Function to add the order
 function add_to_orders() {
-  const addressElement = document.querySelector(".location");
-  const address = addressElement.innerHTML;
+  console.log("Add to Orders button clicked");
 
-  fetch("/scripts/Customer_Purchase_Model/add_to_orders.php", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      address: address,
-      customerId: CustomerId,
-    }),
-  })
-    .then((response) => response.text())
-    .then((result) => {
-      console.log(result); // Handle the result as per your requirements
-    })
-    .catch((error) => {
-      console.error("Error adding to orders:", error);
-    });
+  // Disable the "Buy" button to prevent multiple clicks
+  const buyButton = document.getElementById("buy-cart");
+  buyButton.disabled = true;
+  buyButton.classList.add("btn-disabled"); // Add a CSS class to style the disabled button
+
+  const addressPicker = document.getElementById("addressPicker");
+  const selectedIndex = addressPicker.selectedIndex;
+  const selectedOption = addressPicker.options[selectedIndex];
+  const address = selectedOption.textContent.trim();
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "/scripts/Customer_Purchase_Model/add_to_orders.php", true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+
+  xhr.onload = function () {
+    console.log("Add to Orders response received");
+    console.log("xhr.status:", xhr.status);
+
+    // Re-enable the "Buy" button after the request completes
+    buyButton.disabled = false;
+    buyButton.classList.remove("btn-disabled"); // Remove the disabled button styling
+
+    if (xhr.status === 200) {
+      console.log(xhr.responseText); // Handle the result as per your requirements
+
+      clearCart()
+        .then(() => {
+          console.log("Cart cleared successfully");
+          displayCart(); // Call the displayCart() function after the cart is cleared
+        })
+        .catch((error) => {
+          console.error("Error clearing cart:", error);
+        });
+    } else {
+      console.error("Error adding to orders:", xhr.statusText);
+      // Show an error message or handle the error condition accordingly
+    }
+  };
+
+  xhr.onerror = function () {
+    console.error("Error adding to orders: Request failed");
+
+    // Re-enable the "Buy" button in case of an error
+    buyButton.disabled = false;
+    buyButton.classList.remove("btn-disabled"); // Remove the disabled button styling
+  };
+
+  var requestData = JSON.stringify({
+    address: address,
+    customerId: CustomerId,
+  });
+  xhr.send(requestData);
 }
-
-// Event listener for the Buy button click event
-const buyButton = document.getElementById("buy-cart");
-buyButton.addEventListener("click", add_to_orders);
 
 // -------------------------------------------------------------------

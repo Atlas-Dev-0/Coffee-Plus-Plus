@@ -45,8 +45,6 @@ $_SESSION['globalUserInformation'] = $userInformation;
     <script src="/scripts/navbar/nav.js"></script>
 
 
-
-
     <!-- This container will contain the list of products inside the cart -->
     <div class="cart_page_container container">
         <div class="cart-title-container container">
@@ -82,15 +80,13 @@ $_SESSION['globalUserInformation'] = $userInformation;
                     <input type="text" class="subtotal" readonly>
                 </div>
                 <div class="cart_buttons container">
-                    <button type="submit" id="buy-cart" name="buy-cart">Buy</button>
+                    <button type="submit" id="buy-cart" name="buy-cart" onclick="add_to_orders()">Buy</button>
                     <button id="clear-cart-button" onclick="clearCart()">Clear Cart</button>
                 </div>
             </div>
             </form>
         </div>
     </div>
-
-
 
 
     <script>
