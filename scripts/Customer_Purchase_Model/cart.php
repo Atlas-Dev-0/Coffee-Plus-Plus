@@ -65,7 +65,7 @@ $_SESSION['globalUserInformation'] = $userInformation;
                 <div class="location">
                     <p>Location:</p>
                     <form method="POST" action="">
-                        <select name="addressPicker" id="addressPicker" onchange="updateAddress()">
+                        <select name="addressPicker" id="addressPicker">
                             <option value="address1">Home: <?php echo $userInformation['address'] ?></option>
                             <option value="address2">Work: <?php echo $userInformation['address_work'] ?></option>
                             <option value="address3">Friend: <?php echo $userInformation['address_friend'] ?></option>

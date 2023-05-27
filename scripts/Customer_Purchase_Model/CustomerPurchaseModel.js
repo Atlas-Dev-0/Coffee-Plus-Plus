@@ -1,48 +1,3 @@
-/**
- * Customer Purchase Model
- * --Model to store customer purchases
- * Description: This model will be implemented to provide the customers the ability to add their products to the cart list and purchase the products themselves.
- */
-
-function transferItemsToOrders(cartItems) {
-  // Filter out any cart items with missing or invalid data
-  const validItems = cartItems.filter(
-    (item) =>
-      item &&
-      item.customer_id &&
-      item.product_id &&
-      item.name &&
-      item.price &&
-      item.quantity &&
-      item.image &&
-      item.address &&
-      item.created_at
-  );
-
-  if (validItems.length === 0) {
-    console.error("No valid items found in the cart.");
-    return;
-  }
-
-  // Make an AJAX request to transfer the valid cart items to the orders data table
-  fetch("/scripts/Customer_Purchase_Model/transfer_to_orders.php", {
-    method: "POST",
-    body: JSON.stringify({ cartItems: validItems }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((response) => response.json())
-    .then((result) => {
-      console.log("Items transferred to orders successfully");
-      // Call the clearCart() function to clear the cart items
-      clearCart();
-    })
-    .catch((error) => {
-      console.error("Error transferring items to orders:", error);
-    });
-}
-
 function clearCart() {
   var xhr = new XMLHttpRequest();
 
@@ -151,38 +106,26 @@ function displayCart() {
       cartContainer.innerHTML = `<p class="empty_notif">Error fetching cart items.</p>`;
     });
 }
+
 const UrlPageQueue = window.location.href;
 if (UrlPageQueue.includes("cart")) {
   console.log("Customer ID present: " + CustomerId); // Update the variable name to 'CustomerId'
   displayCart();
 }
 
-document.getElementById("buy-cart").addEventListener("click", function () {
-  // Fetch the cart items from the server
-  console.log("Buy Button Pressed");
-
-  fetch("/scripts/Customer_Purchase_Model/fetch_cart_items.php")
-    .then((response) => response.json())
-    .then((cartItems) => {
-      if (!cartItems || cartItems.length === 0) {
-        console.log("Cart is empty");
-        return;
-      }
-
-      console.log("Transferring Items");
-      // Transfer the cart items to the orders data table
-      transferItemsToOrders(cartItems);
-    })
-    .catch((error) => {
-      console.log("Error fetching cart items:", error);
-    });
-});
-
-function updateAddress() {
-  var select = document.getElementById("addressPicker");
-  var selectedAddress = select.options[select.selectedIndex].text;
-
-  // Update the address in the desired location
+// Update the address in the desired location
+function updateAddress(event) {
+  var selectedAddress = event.target.options[event.target.selectedIndex].text;
   var locationElement = document.querySelector(".location");
-  locationElement.innerHTML = selectedAddress; // Update the variable name to 'locationElement'
+  locationElement.innerHTML = selectedAddress;
+
+  // Perform any additional actions related to the address update here
+  // For example, you can trigger an AJAX request to update the address in the backend or perform any other necessary operations.
 }
+
+// Event delegation to handle the change event of the dropdown
+document.addEventListener("change", function (event) {
+  if (event.target && event.target.id === "addressPicker") {
+    updateAddress(event);
+  }
+});
