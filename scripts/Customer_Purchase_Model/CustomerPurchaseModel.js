@@ -32,6 +32,7 @@ function displayCart() {
   const cartContainer = document.getElementById("product-container");
   const totalItemsElement = document.querySelector(".total_items");
   const subtotalInput = document.querySelector(".subtotal");
+  const buyButton = document.getElementById("buy-cart");
 
   cartContainer.innerHTML = "";
   let totalItems = 0;
@@ -52,6 +53,8 @@ function displayCart() {
       if (!cartItems || cartItems.length === 0) {
         cartContainer.innerHTML = `<p class="empty_notif">Your cart is empty.</p>`;
         subtotalInput.value = "";
+        buyButton.disabled = true; // Disable the "Buy" button
+        buyButton.classList.add("btn-disabled"); // Add a CSS class to style the disabled button
         return;
       }
 
@@ -108,6 +111,9 @@ function displayCart() {
       totalItemsElement.textContent =
         "Total Items: " + totalItems.toString() + "x";
       subtotalInput.value = "Php " + totalPrice.toFixed(2);
+
+      buyButton.disabled = false; // Enable the "Buy" button
+      buyButton.classList.remove("btn-disabled"); // Remove the disabled button styling
     } else {
       console.error("Error fetching cart items:", xhr.statusText);
       cartContainer.innerHTML = `<p class="empty_notif">Error fetching cart items.</p>`;
@@ -160,8 +166,9 @@ document.getElementById("buy-cart").addEventListener("click", add_to_orders);
 function add_to_orders() {
   console.log("Add to Orders button clicked");
 
-  // Disable the "Buy" button to prevent multiple clicks
   const buyButton = document.getElementById("buy-cart");
+
+  // Disable the "Buy" button to prevent multiple clicks
   buyButton.disabled = true;
   buyButton.classList.add("btn-disabled"); // Add a CSS class to style the disabled button
 
@@ -178,9 +185,8 @@ function add_to_orders() {
     console.log("Add to Orders response received");
     console.log("xhr.status:", xhr.status);
 
-    // Re-enable the "Buy" button after the request completes
-    buyButton.disabled = false;
-    buyButton.classList.remove("btn-disabled"); // Remove the disabled button styling
+    buyButton.disabled = true; // Disable the "Buy" button
+    buyButton.classList.add("btn-disabled"); // Add a CSS class to style the disabled button
 
     if (xhr.status === 200) {
       console.log(xhr.responseText); // Handle the result as per your requirements
@@ -194,8 +200,7 @@ function add_to_orders() {
           console.error("Error clearing cart:", error);
         });
     } else {
-      console.error("Error adding to orders:", xhr.statusText);
-      // Show an error message or handle the error condition accordingly
+      console.error("Error adding to orders:", xhr.statusText); // Show an error message or handle the error condition accordingly
     }
   };
 

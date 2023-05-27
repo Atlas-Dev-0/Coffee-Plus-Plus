@@ -184,13 +184,19 @@
   border-radius: 20px;
 }
 
-#buy-cart {
+.buy-cart {
   font-weight: bold;
   color: #ffffff;
   background-color: rgb(3, 118, 29);
   height: 30px;
   width: 90px;
   border-radius: 20px;
+}
+
+.btn-disabled {
+  color: #2d2b2b;
+  background-color: gray;
+  cursor: not-allowed;
 }
 
 .subtotal {

@@ -80,7 +80,7 @@ $_SESSION['globalUserInformation'] = $userInformation;
                     <input type="text" class="subtotal" readonly>
                 </div>
                 <div class="cart_buttons container">
-                    <button type="submit" id="buy-cart" name="buy-cart" onclick="add_to_orders()">Buy</button>
+                    <button class="buy-cart" type=" submit" id="buy-cart" name="buy-cart" onclick="add_to_orders()">Buy</button>
                     <button id="clear-cart-button" onclick="clearCart()">Clear Cart</button>
                 </div>
             </div>
