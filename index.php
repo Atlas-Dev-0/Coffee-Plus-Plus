@@ -1,3 +1,7 @@
+<!-- index.php -->
+<!-- This is the main page -->
+
+
 <?php
 // Start the session
 session_start();
@@ -19,7 +23,6 @@ if (isset($_SESSION['userInformation'])) {
   $userInformationJSON = '[]';
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 

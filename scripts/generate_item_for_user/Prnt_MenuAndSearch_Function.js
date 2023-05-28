@@ -1,3 +1,6 @@
+// Prnt_MenuAndSearch_Function.js
+// This js will print the items in the index.php and it has other functions such as search function
+
 function Load_Prnt_MenuAndSearch_Function() {
   fetch("/scripts/generate_item_for_user/get_products.php")
     .then((response) => response.json())

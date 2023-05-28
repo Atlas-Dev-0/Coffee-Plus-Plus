@@ -22,8 +22,6 @@ if (isset($_SESSION['userInformation'])) {
 
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 
