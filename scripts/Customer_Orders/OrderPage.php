@@ -51,8 +51,9 @@ $_SESSION['globalUserInformation'] = $userInformation;
 
     <div class="order-table-container container">
         <h1>Order Summary</h1>
+        <p style="color: red; font-weight: bold; font-family:'Montserrat', sans-serif;">Note: Items will dissapear once the delivery time is due</p>
 
-        <table class="table">
+        <table class=" table">
             <thead>
                 <tr>
                     <th>#</th>

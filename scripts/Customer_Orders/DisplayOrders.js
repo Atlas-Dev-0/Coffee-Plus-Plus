@@ -49,14 +49,11 @@ function populateOrderTable(orders) {
     var orderDate = new Date(order.created_at); // Assuming order.created_at is a valid date string or object
     var deliveryTime = new Date(orderDate.getTime() + 2 * 60000); // Adding 2 minutes (2 * 60 * 1000 milliseconds) to the order date
 
-    var deliveryDateTimeString = `${deliveryTime.toLocaleDateString()} ${deliveryTime.toLocaleTimeString(
-      [],
-      {
-        hour: "2-digit",
-        minute: "2-digit",
-      }
-    )}`;
-    deliveryTimeCell.textContent = deliveryDateTimeString; // Display the delivery time (date and time)
+    var deliveryTimeString = `${deliveryTime.getHours()}:${deliveryTime
+      .getMinutes()
+      .toString()
+      .padStart(2, "0")}:00`;
+    deliveryTimeCell.textContent = deliveryTimeString; // Display the delivery time (hours:minutes:00)
 
     priceCell.textContent = "Php " + Number(order.price).toFixed(2);
 
