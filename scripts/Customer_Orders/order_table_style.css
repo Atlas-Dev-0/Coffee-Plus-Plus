@@ -1,0 +1,41 @@
+/* order_table_style css */
+
+/* Background color of the table */
+table {
+  margin-top: 20px;
+  background-color: #fffddd;
+}
+
+/* Font color of the table */
+table,
+th,
+td {
+  color: #333;
+}
+
+/* Color of the table lines */
+th,
+td {
+  border-bottom: 4px solid #434330;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
+
+/* Alternating row colors */
+tr:nth-child(even) {
+  background-color: #e1dfbd;
+}
+
+.order-image {
+  width: 69px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.order-table-container {
+  margin-top: 27px;
+}
+
+.body {
+  font-family: "Montserrat", sans-serif;
+}
