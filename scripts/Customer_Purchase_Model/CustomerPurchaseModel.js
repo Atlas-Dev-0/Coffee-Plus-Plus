@@ -166,10 +166,6 @@ function add_to_orders() {
 
   const buyButton = document.getElementById("buy-cart");
 
-  // Disable the "Buy" button to prevent multiple clicks
-  buyButton.disabled = true;
-  buyButton.classList.add("btn-disabled"); // Add a CSS class to style the disabled button
-
   const addressPicker = document.getElementById("addressPicker");
   const selectedIndex = addressPicker.selectedIndex;
   const selectedOption = addressPicker.options[selectedIndex];

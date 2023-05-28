@@ -1,4 +1,8 @@
 <?php
+
+// add_to_orders.php
+//This will add the cart items to the orders data table
+
 // Database credentials
 $servername = "localhost";
 $username = "root";
@@ -18,9 +22,10 @@ try {
 
     // Prepare the SQL statement
     $stmt = $conn->prepare("INSERT INTO orders (customer_id, product_id, name, price, quantity, image, created_at, address)
-        SELECT customer_id, product_id, name, price, quantity, image, created_at, :address
-        FROM cart
-        WHERE customer_id = :customerId");
+    SELECT customer_id, product_id, name, price, quantity, image, NOW(), :address
+    FROM cart
+    WHERE customer_id = :customerId");
+
 
     // Bind the parameters
     $stmt->bindParam(':address', $address);
