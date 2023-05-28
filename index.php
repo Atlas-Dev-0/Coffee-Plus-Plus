@@ -53,6 +53,7 @@ if (isset($_SESSION['userInformation'])) {
 
   <div id="navbar"></div>
 
+
   <div class="container-fluid">
     <div class="row align-items-center">
       <div class="welcome_header">
@@ -71,25 +72,13 @@ if (isset($_SESSION['userInformation'])) {
     </div>
     <div class="row" style="margin-top: 50px; margin-bottom: 20px">
       <div class="d-flex justify-content-center">
-        <div class="input-group">
+        <div class=" input-group">
           <input id="UsRqstX" class="form-control" type="text" placeholder="Search" />
           <button type="button" class="search btn btn-primary" id="gosearch">
             <img src="/Design Elements/icons/search.svg" class="search_icon" height="20px" />
           </button>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="category-menu container">
-    <div class="categories">
-      <input type="radio" class="check btn-check" name="categories" id="category-all" autocomplete="off" checked />
-      <label class="category btn btn-secondary" for="category-all">ALL</label>
-      <input type="radio" class="btn-check" name="categories" id="category-basic" autocomplete="off" />
-      <label class="category btn btn-secondary" for="category-basic">BASIC</label>
-      <input type="radio" class="btn-check" name="categories" id="category-special" autocomplete="off" />
-      <label class="category btn btn-secondary" for="category-special">SPECIALTIES</label>
-      <input type="radio" class="btn-check" name="categories" id="category-iced" autocomplete="off" />
-      <label class="category btn btn-secondary" for="category-iced">ICED</label>
     </div>
   </div>
 
