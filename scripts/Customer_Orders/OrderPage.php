@@ -51,14 +51,16 @@ $_SESSION['globalUserInformation'] = $userInformation;
 
     <div class="order-table-container container">
         <h1>Order Summary</h1>
+
         <table class="table">
             <thead>
                 <tr>
-                    <th></th>
+                    <th>#</th>
                     <th>Product</th>
                     <th>Quantity</th>
                     <th>Address</th>
                     <th>Order Date</th>
+                    <th>Delivery Time</th>
                     <th>Price</th>
                 </tr>
             </thead>
@@ -67,17 +69,17 @@ $_SESSION['globalUserInformation'] = $userInformation;
             </tbody>
             <tfoot>
                 <tr id="totalRow">
-                    <td colspan="5">Total:</td>
-                    <td id="totalPrice">$0.00</td>
+                    <td colspan="6">Total:</td>
+                    <td colspan="1" id="totalPrice">$0.00</td>
                 </tr>
             </tfoot>
+
         </table>
     </div>
 
     <script>
         // Define a global variable and assign the userInformation JSON to it
         var globalUserInformation = <?php echo $userInformationJSON; ?>;
-        var CustomerId = globalUserInformation.customer_id;
     </script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

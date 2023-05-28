@@ -32,10 +32,11 @@ function populateOrderTable(orders) {
     var quantityCell = document.createElement("td");
     var addressCell = document.createElement("td");
     var createdAtCell = document.createElement("td");
-    var priceCell = document.createElement("td"); // Move the price cell creation here
+    var deliveryTimeCell = document.createElement("td"); // Add a cell for delivery time
+    var priceCell = document.createElement("td");
 
     var imageElement = document.createElement("img");
-    imageElement.src = "/" + order.image; // Add a "/" at the beginning
+    imageElement.src = "/" + order.image;
     imageElement.alt = order.name;
     imageElement.classList.add("order-image");
 
@@ -44,19 +45,65 @@ function populateOrderTable(orders) {
     quantityCell.textContent = order.quantity;
     addressCell.textContent = order.address;
     createdAtCell.textContent = order.created_at;
-    priceCell.textContent = "Php " + Number(order.price).toFixed(2); // Set the price cell content
+
+    var orderDate = new Date(order.created_at); // Assuming order.created_at is a valid date string or object
+    var deliveryTime = new Date(orderDate.getTime() + 2 * 60000); // Adding 2 minutes (2 * 60 * 1000 milliseconds) to the order date
+
+    var deliveryDateTimeString = `${deliveryTime.toLocaleDateString()} ${deliveryTime.toLocaleTimeString(
+      [],
+      {
+        hour: "2-digit",
+        minute: "2-digit",
+      }
+    )}`;
+    deliveryTimeCell.textContent = deliveryDateTimeString; // Display the delivery time (date and time)
+
+    priceCell.textContent = "Php " + Number(order.price).toFixed(2);
 
     row.appendChild(imageCell);
     row.appendChild(productCell);
     row.appendChild(quantityCell);
     row.appendChild(addressCell);
     row.appendChild(createdAtCell);
-    row.appendChild(priceCell); // Append the price cell as the last cell in the row
+    row.appendChild(deliveryTimeCell); // Append the delivery time cell
+    row.appendChild(priceCell);
     tableBody.appendChild(row);
 
     totalPrice += Number(order.price);
+
+    // Check if the delivery time has already passed or due
+    var currentTime = new Date();
+    if (deliveryTime <= currentTime) {
+      // Remove the item from the user's order table using customer_id and createdAt
+      var customerId = globalUserInformation.customer_id;
+      var createdAt = order.created_at;
+      removeItemFromOrderTable(customerId, order.name, createdAt);
+    }
   });
 
   document.getElementById("totalPrice").textContent =
-    "Php" + totalPrice.toFixed(2);
+    "Php " + totalPrice.toFixed(2);
+}
+
+// Function to remove an item from the user's order table
+function removeItemFromOrderTable(customerId, itemName, createdAt) {
+  // Make an AJAX request to remove the item from the order table
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      console.log("Item removed from order table");
+    }
+  };
+
+  var url = "/scripts/Customer_Orders/remove_item.php";
+  var params =
+    "customerId=" +
+    customerId +
+    "&itemName=" +
+    encodeURIComponent(itemName) +
+    "&createdAt=" +
+    encodeURIComponent(createdAt); // Add createdAt parameter
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhr.send(params);
 }
