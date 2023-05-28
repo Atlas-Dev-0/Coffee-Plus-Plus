@@ -87,7 +87,7 @@ $_SESSION['globalUserInformation'] = $userInformation;
                 </div>
                 <div class="cart_buttons container">
                     <button class="buy-cart" type=" submit" id="buy-cart" name="buy-cart"">Buy</button>
-                    <button id=" clear-cart-button" onclick="clearCart()">Clear Cart</button>
+                    <button  onclick=" clearCart()" id="clear-cart-button">Clear Cart</button>
                 </div>
             </div>
             </form>
