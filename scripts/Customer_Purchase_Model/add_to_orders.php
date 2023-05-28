@@ -1,7 +1,7 @@
 <?php
 
 // add_to_orders.php
-//This will add the cart items to the orders data table
+// This will add the cart items to the orders data table
 
 // Database credentials
 $servername = "localhost";
@@ -20,12 +20,11 @@ try {
     $address = $requestData['address'];
     $customerId = $requestData['customerId'];
 
-    // Prepare the SQL statement
+    // Prepare the SQL statement to insert into orders table
     $stmt = $conn->prepare("INSERT INTO orders (customer_id, product_id, name, price, quantity, image, created_at, address)
     SELECT customer_id, product_id, name, price, quantity, image, NOW(), :address
     FROM cart
     WHERE customer_id = :customerId");
-
 
     // Bind the parameters
     $stmt->bindParam(':address', $address);
@@ -38,6 +37,13 @@ try {
     $rowCount = $stmt->rowCount();
     if ($rowCount > 0) {
         echo $rowCount . " ordered item(s) added to orders table.";
+
+        // Prepare the SQL statement to delete from cart table
+        $deleteStmt = $conn->prepare("DELETE FROM cart WHERE customer_id = :customerId");
+        // Bind the parameter
+        $deleteStmt->bindParam(':customerId', $customerId);
+        // Execute the delete statement
+        $deleteStmt->execute();
     } else {
         echo "No items added to orders table.";
     }
