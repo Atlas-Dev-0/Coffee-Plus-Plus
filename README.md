@@ -4,4 +4,4 @@ This is a project that my team worked on as a project for my College Course "Sof
 
 This Website is an E-commerce Webiste that basically sells Coffee and delivers it to your chosen location and lets the user pay using "C.O.D" mode of payment or Cash on Delivery.
 
-<img src="Documents and Documentation/WEB DESIGN/Main_Page.png" width="500px">
+<img src="Documents and Documentation/WEB DESIGN/Main_Page.png" width="550px">
