@@ -6,11 +6,11 @@ This Website is an E-commerce Webiste that basically sells Coffee and delivers i
 
 ### Website UI Design
 
-Main Page
+### Main Page
 <img src="Documents and Documentation/WEB DESIGN/Main_Page.png" width="550px">
 
-Product Pop-Up
+### Product Pop-Up
 <img src="Documents and Documentation/WEB DESIGN/Product_Picked.png" width="550px">
 
-Order Summary
+### Order Summary
 <img src="Documents and Documentation/WEB DESIGN/Order_Summary.png" width="550px">
