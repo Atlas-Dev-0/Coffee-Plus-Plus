@@ -6,8 +6,9 @@ This Website is an E-commerce Webiste that basically sells Coffee and delivers i
 
 ### Website UI Design
 
-### Main Page
+
 <div align="center">
+  ### Main Page
   <img src="Documents and Documentation/WEB DESIGN/Main_Page.png" width="550px">
 </div>
 
